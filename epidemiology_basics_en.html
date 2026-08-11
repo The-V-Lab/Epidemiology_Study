@@ -2719,34 +2719,34 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ef2929; } 
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.at { color: #204a87; } 
-code span.bn { color: #0000cf; } 
-code span.cf { color: #204a87; font-weight: bold; } 
-code span.ch { color: #4e9a06; } 
-code span.cn { color: #8f5902; } 
-code span.co { color: #8f5902; font-style: italic; } 
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.dt { color: #204a87; } 
-code span.dv { color: #0000cf; } 
-code span.er { color: #a40000; font-weight: bold; } 
-code span.ex { } 
-code span.fl { color: #0000cf; } 
-code span.fu { color: #204a87; font-weight: bold; } 
-code span.im { } 
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.kw { color: #204a87; font-weight: bold; } 
-code span.op { color: #ce5c00; font-weight: bold; } 
-code span.ot { color: #8f5902; } 
-code span.pp { color: #8f5902; font-style: italic; } 
-code span.sc { color: #ce5c00; font-weight: bold; } 
-code span.ss { color: #4e9a06; } 
-code span.st { color: #4e9a06; } 
-code span.va { color: #000000; } 
-code span.vs { color: #4e9a06; } 
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.al { color: #ef2929; }
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; }
+code span.at { color: #204a87; }
+code span.bn { color: #0000cf; }
+code span.cf { color: #204a87; font-weight: bold; }
+code span.ch { color: #4e9a06; }
+code span.cn { color: #8f5902; }
+code span.co { color: #8f5902; font-style: italic; }
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; }
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; }
+code span.dt { color: #204a87; }
+code span.dv { color: #0000cf; }
+code span.er { color: #a40000; font-weight: bold; }
+code span.ex { }
+code span.fl { color: #0000cf; }
+code span.fu { color: #204a87; font-weight: bold; }
+code span.im { }
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; }
+code span.kw { color: #204a87; font-weight: bold; }
+code span.op { color: #ce5c00; font-weight: bold; }
+code span.ot { color: #8f5902; }
+code span.pp { color: #8f5902; font-style: italic; }
+code span.sc { color: #ce5c00; font-weight: bold; }
+code span.ss { color: #4e9a06; }
+code span.st { color: #4e9a06; }
+code span.va { color: #000000; }
+code span.vs { color: #4e9a06; }
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; }
 .sourceCode .row {
 width: 100%;
 }
@@ -3651,8 +3651,11 @@ margin: 1em 0;
 table { width: 100%; }
 </style>
 <nav class="language-switch" aria-label="Guide navigation">
-<a class="language-home" href="index.html">← The V Lab Home</a> <span class="language-option active" aria-current="page">English</span>
-<a class="language-option" href="epidemiology_basics_zh.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<a class="language-home" href="index.html">← The V Lab Home</a> <span class="language-option active" aria-current="page">Foundations EN</span>
+<a class="language-option" href="epidemiology_basics_zh.html" lang="zh-CN" hreflang="zh-CN">基础中文</a>
+<a class="language-option" href="epidemiology_research_designs_en.html" hreflang="en">Research
+Design EN</a>
+<a class="language-option" href="epidemiology_research_designs_zh.html" lang="zh-CN" hreflang="zh-CN">研究设计中文</a>
 <a class="language-option" href="https://github.com/LaboratoireV/Epidemiology_Study">GitHub</a>
 </nav>
 <blockquote>
@@ -3865,7 +3868,7 @@ exceed 1 per chosen unit of time.</p>
 <span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>  <span class="at">one_year_risk =</span> one_year_risk,</span>
 <span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>  <span class="at">cases_per_1000_person_years =</span> incidence_rate <span class="sc">*</span> <span class="dv">1000</span></span>
 <span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>##            point_prevalence               one_year_risk cases_per_1000_person_years 
+<pre><code>##            point_prevalence               one_year_risk cases_per_1000_person_years
 ##                     0.07000                     0.01935                    20.54795</code></pre>
 <p>Interpretation:</p>
 <ul>
@@ -3927,7 +3930,7 @@ distribution.</p>
 </div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">c</span>(<span class="at">region_A_per_1000 =</span> <span class="dv">1000</span> <span class="sc">*</span> age_standardized_A,</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="at">region_B_per_1000 =</span> <span class="dv">1000</span> <span class="sc">*</span> age_standardized_B)</span></code></pre></div>
-<pre><code>## region_A_per_1000 region_B_per_1000 
+<pre><code>## region_A_per_1000 region_B_per_1000
 ##              8.30              7.05</code></pre>
 <p>Standardized rates are comparison summaries, not necessarily the
 observed rate in either population. Always report the standard
@@ -4354,7 +4357,7 @@ within age strata before producing a summary.</p>
 <span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a>crude_or <span class="ot">&lt;-</span> (crude[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">*</span> crude[<span class="dv">2</span>, <span class="dv">2</span>]) <span class="sc">/</span> (crude[<span class="dv">1</span>, <span class="dv">2</span>] <span class="sc">*</span> crude[<span class="dv">2</span>, <span class="dv">1</span>])</span>
 <span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a><span class="fu">c</span>(<span class="at">crude_or =</span> crude_or, stratum_or,</span>
 <span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a>  <span class="at">mantel_haenszel_or =</span> mh_num <span class="sc">/</span> mh_den)</span></code></pre></div>
-<pre><code>##           crude_or            younger              older mantel_haenszel_or 
+<pre><code>##           crude_or            younger              older mantel_haenszel_or
 ##              7.146              2.111              2.030              2.048</code></pre>
 <p>The stratum-specific ORs are both close to 2, and the Mantel-Haenszel
 summary is also about 2, whereas the crude OR is much larger because
@@ -4555,7 +4558,7 @@ misleading.</p>
 <span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a>}</span>
 <span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a></span>
 <span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a><span class="fu">diagnostic_metrics</span>(<span class="at">tp =</span> <span class="dv">85</span>, <span class="at">fp =</span> <span class="dv">90</span>, <span class="at">fn =</span> <span class="dv">15</span>, <span class="at">tn =</span> <span class="dv">810</span>)</span></code></pre></div>
-<pre><code>## sensitivity specificity         PPV         NPV LR_positive LR_negative    accuracy 
+<pre><code>## sensitivity specificity         PPV         NPV LR_positive LR_negative    accuracy
 ##      0.8500      0.9000      0.4857      0.9818      8.5000      0.1667      0.8950</code></pre>
 </div>
 <div id="predictive-values-depend-on-prevalence" class="section level2 hasAnchor">
@@ -5025,7 +5028,7 @@ data.</p>
 <span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>  <span class="fu">factor</span>(disease_5y, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Case&quot;</span>, <span class="st">&quot;Non-case&quot;</span>))</span>
 <span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>))</span>
 <span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a>cohort_tab</span></code></pre></div>
-<pre><code>##             
+<pre><code>##
 ##              Case Non-case
 ##   Smoker       94      960
 ##   Non-smoker   47     1399</code></pre>
@@ -5102,9 +5105,9 @@ scenarios.</p>
 <span id="cb32-15"><a href="#cb32-15" tabindex="-1"></a>  <span class="at">standardized_risk_ratio =</span> risk_if_all_smoked <span class="sc">/</span> risk_if_none_smoked</span>
 <span id="cb32-16"><a href="#cb32-16" tabindex="-1"></a>)</span>
 <span id="cb32-17"><a href="#cb32-17" tabindex="-1"></a>standardized_effects</span></code></pre></div>
-<pre><code>##           risk_if_all_smoked          risk_if_none_smoked standardized_risk_difference 
-##                      0.08600                      0.03346                      0.05254 
-##      standardized_risk_ratio 
+<pre><code>##           risk_if_all_smoked          risk_if_none_smoked standardized_risk_difference
+##                      0.08600                      0.03346                      0.05254
+##      standardized_risk_ratio
 ##                      2.57041</code></pre>
 <p>These g-computation estimates have a causal interpretation only if
 exchangeability, positivity, consistency, measurement, model, and
@@ -5326,7 +5329,7 @@ systematically unmeasured information.</p>
 <span id="cb51-10"><a href="#cb51-10" tabindex="-1"></a>  <span class="at">missing_among_non_cases =</span> <span class="fu">with</span>(cohort_missing,</span>
 <span id="cb51-11"><a href="#cb51-11" tabindex="-1"></a>    <span class="fu">mean</span>(<span class="fu">is.na</span>(activity[disease_5y <span class="sc">==</span> <span class="dv">0</span>])))</span>
 <span id="cb51-12"><a href="#cb51-12" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>##        missing_activity     missing_among_cases missing_among_non_cases 
+<pre><code>##        missing_activity     missing_among_cases missing_among_non_cases
 ##                 0.06080                 0.17021                 0.05426</code></pre>
 <p>Because missingness here depends on outcome and age, simply
 describing an overall missing percentage hides a meaningful pattern.</p>
@@ -5483,24 +5486,24 @@ copy/paste;</li>
 <pre><code>## R version 4.6.1 (2026-06-24)
 ## Platform: aarch64-apple-darwin23
 ## Running under: macOS Tahoe 26.5.1
-## 
+##
 ## Matrix products: default
-## BLAS:   /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib 
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib
 ## LAPACK: /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
-## 
+##
 ## locale:
 ## [1] C.UTF-8/C.UTF-8/C.UTF-8/C/C.UTF-8/C.UTF-8
-## 
+##
 ## time zone: America/Edmonton
 ## tzcode source: internal
-## 
+##
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
+## [1] stats     graphics  grDevices utils     datasets  methods   base
+##
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.39   R6_2.6.1        fastmap_1.2.0   xfun_0.60       cachem_1.1.0   
-##  [6] knitr_1.51      htmltools_0.5.9 rmarkdown_2.31  lifecycle_1.0.5 cli_3.6.6      
-## [11] sass_0.4.10     jquerylib_0.1.4 compiler_4.6.1  tools_4.6.1     evaluate_1.0.5 
+##  [1] digest_0.6.39   R6_2.6.1        fastmap_1.2.0   xfun_0.60       cachem_1.1.0
+##  [6] knitr_1.51      htmltools_0.5.9 rmarkdown_2.31  lifecycle_1.0.5 cli_3.6.6
+## [11] sass_0.4.10     jquerylib_0.1.4 compiler_4.6.1  tools_4.6.1     evaluate_1.0.5
 ## [16] bslib_0.12.0    yaml_2.3.12     rlang_1.3.0     jsonlite_2.0.0</code></pre>
 </div>
 <div id="exercises" class="section level1 hasAnchor">
@@ -5525,9 +5528,9 @@ free of the condition. They contribute 18,500 person-years at risk.</p>
 <span id="cb55-4"><a href="#cb55-4" tabindex="-1"></a><span class="fu">c</span>(<span class="at">prevalence =</span> prevalence_ex1,</span>
 <span id="cb55-5"><a href="#cb55-5" tabindex="-1"></a>  <span class="at">one_year_risk =</span> risk_ex1,</span>
 <span id="cb55-6"><a href="#cb55-6" tabindex="-1"></a>  <span class="at">incidence_per_1000_person_years =</span> rate_ex1)</span></code></pre></div>
-<pre><code>##                      prevalence                   one_year_risk 
-##                            0.05                            0.02 
-## incidence_per_1000_person_years 
+<pre><code>##                      prevalence                   one_year_risk
+##                            0.05                            0.02
+## incidence_per_1000_person_years
 ##                           20.54</code></pre>
 <p>The results are 5% prevalence, 2% one-year risk, and about 20.5 cases
 per 1,000 person-years.</p>
@@ -5581,10 +5584,10 @@ they are not identical.</p>
 <span id="cb58-6"><a href="#cb58-6" tabindex="-1"></a>tn_ex3 <span class="ot">&lt;-</span> noncases_ex3 <span class="sc">*</span> <span class="fl">0.90</span></span>
 <span id="cb58-7"><a href="#cb58-7" tabindex="-1"></a>fp_ex3 <span class="ot">&lt;-</span> noncases_ex3 <span class="sc">-</span> tn_ex3</span>
 <span id="cb58-8"><a href="#cb58-8" tabindex="-1"></a><span class="fu">c</span>(<span class="at">TP =</span> tp_ex3, <span class="at">FN =</span> fn_ex3, <span class="at">FP =</span> fp_ex3, <span class="at">TN =</span> tn_ex3)</span></code></pre></div>
-<pre><code>##   TP   FN   FP   TN 
+<pre><code>##   TP   FN   FP   TN
 ##   95    5  990 8910</code></pre>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="fu">diagnostic_metrics</span>(tp_ex3, fp_ex3, fn_ex3, tn_ex3)</span></code></pre></div>
-<pre><code>## sensitivity specificity         PPV         NPV LR_positive LR_negative    accuracy 
+<pre><code>## sensitivity specificity         PPV         NPV LR_positive LR_negative    accuracy
 ##     0.95000     0.90000     0.08756     0.99944     9.50000     0.05556     0.90050</code></pre>
 <p>There are many more noncases than cases. Even a 10% false-positive
 fraction applied to 9,900 noncases produces far more false positives

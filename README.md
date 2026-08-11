@@ -11,6 +11,8 @@
 - [课程首页：Epidemiology Learning Hub](https://laboratoirev.github.io/Epidemiology_Study/)
 - [中文教程：流行病学基础、方法与常见研究](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_basics_zh.html)
 - [English guide: Foundations of Epidemiology](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_basics_en.html)
+- [中文专题：流行病学研究设计、研究类型、抽样与方案制定](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_research_designs_zh.html)
+- [English guide: Epidemiologic Research Designs](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_research_designs_en.html)
 
 ## 你将学习
 
@@ -21,14 +23,19 @@
 - 评价筛查与诊断试验，并理解预测值与患病率的关系；
 - 概述疾病监测、暴发调查、DAG 和目标试验思维；
 - 用 R 完成数据检查、描述分析、基础回归及可重复报告；
-- 将常见研究主题转化为明确、合乎伦理且可回答的问题。
+- 将常见研究主题转化为明确、合乎伦理且可回答的问题；
+- 比较常用研究类型的适用问题、优点、局限及主要偏倚；
+- 定义目标人群、来源人群与抽样框，选择概率或非概率抽样方法；
+- 将研究问题转化为包含样本量、招募、测量、质量控制、伦理和分析计划的完整方案。
 
 ## 项目文件
 
 - `index.html`：双语学习中心首页与课程导航。
 - `epidemiology_basics_zh.html`：完整中文教程。
 - `epidemiology_basics_en.html`：完整英文教程。
-- `styles.css`：两份教程共享的品牌、移动端和打印样式。
+- `epidemiology_research_designs_zh.html`：中文研究设计、研究类型与抽样专题。
+- `epidemiology_research_designs_en.html`：英文研究设计、研究类型与抽样专题。
+- `styles.css`：四份教程共享的品牌、移动端和打印样式。
 - `includes/vlab-brand.html`：教程页顶部的 The V Lab 品牌入口。
 - `og-learning-hub.png`：网站社交分享预览图。
 - `render.R`：在本地 Rmd 源文件存在时重新生成 HTML。
