@@ -73,7 +73,7 @@
       background:
         radial-gradient(circle at 91% 7%, rgba(199, 227, 219, 0.72), transparent 27rem),
         radial-gradient(circle at 8% 31%, rgba(249, 233, 227, 0.64), transparent 24rem),
-        linear-gradient(180deg, #fbfaf6 0%, var(--paper) 40%, #f8f5ee 100%);
+        linear-gradient(180deg, #fbfaf6 0%, var(--paper) 38%, #f8f5ee 100%);
       font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
                    "Segoe UI", "PingFang SC", "Hiragino Sans GB",
                    "Microsoft YaHei", sans-serif;
@@ -420,8 +420,7 @@
       padding-block: clamp(78px, 9vw, 118px);
     }
 
-    .section + .section,
-    .section-border {
+    .section + .section {
       border-top: 1px solid var(--line);
     }
 
@@ -589,9 +588,9 @@
       --accent: var(--teal);
       --accent-pale: var(--mint-pale);
       display: flex;
-      min-height: 455px;
+      min-height: 430px;
       flex-direction: column;
-      padding: clamp(28px, 4vw, 40px);
+      padding: clamp(26px, 4vw, 38px);
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       background: var(--surface);
@@ -599,41 +598,31 @@
       transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
 
-    .course-card:nth-child(2) {
-      --accent: var(--coral);
-      --accent-pale: var(--coral-pale);
+    .accent-gold {
+      --accent: var(--gold);
+      --accent-pale: var(--gold-pale);
     }
 
-    .course-card:nth-child(3) {
+    .accent-blue {
       --accent: var(--blue);
       --accent-pale: var(--blue-pale);
     }
 
-    .course-card:nth-child(4) {
+    .accent-coral {
+      --accent: var(--coral);
+      --accent-pale: var(--coral-pale);
+    }
+
+    .accent-violet {
       --accent: var(--violet);
       --accent-pale: var(--violet-pale);
     }
 
     .course-card:hover,
     .course-card:focus-within {
-      border-color: rgba(11, 107, 102, 0.38);
+      border-color: color-mix(in srgb, var(--accent) 44%, transparent);
       box-shadow: var(--shadow-lg);
       transform: translateY(-4px);
-    }
-
-    .course-card:nth-child(2):hover,
-    .course-card:nth-child(2):focus-within {
-      border-color: rgba(164, 66, 47, 0.38);
-    }
-
-    .course-card:nth-child(3):hover,
-    .course-card:nth-child(3):focus-within {
-      border-color: rgba(61, 112, 133, 0.38);
-    }
-
-    .course-card:nth-child(4):hover,
-    .course-card:nth-child(4):focus-within {
-      border-color: rgba(118, 97, 140, 0.38);
     }
 
     .course-topline {
@@ -641,18 +630,18 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 34px;
+      margin-bottom: 32px;
     }
 
     .course-number {
       display: grid;
-      width: 48px;
-      height: 48px;
+      width: 45px;
+      height: 45px;
       place-items: center;
       border-radius: 14px;
       color: var(--accent);
       background: var(--accent-pale);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 900;
     }
 
@@ -675,13 +664,14 @@
     }
 
     .course-card h3 {
-      margin-bottom: 8px;
+      margin-bottom: 5px;
       font-family: Georgia, "Times New Roman", "Songti SC", serif;
-      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-size: clamp(1.75rem, 3vw, 2.45rem);
       font-weight: 600;
       line-height: 1.05;
     }
 
+    .course-title-zh,
     .course-kicker {
       margin-bottom: 20px;
       color: var(--accent);
@@ -703,29 +693,43 @@
     }
 
     .language-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: auto;
     }
 
-    .course-card .button {
+    .language-actions .button {
+      min-height: 44px;
+      padding: 9px 15px;
+      font-size: 0.84rem;
+    }
+
+    .language-actions .button:first-child {
       color: #fff;
       background: var(--accent);
     }
 
-    .research-grid {
+    .language-actions .button:last-child {
+      border-color: color-mix(in srgb, var(--accent) 38%, transparent);
+      color: var(--accent);
+      background: var(--accent-pale);
+    }
+
+    .track-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .research-card {
-      min-height: 250px;
+    .track-card {
       padding: 28px;
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       background: rgba(255, 253, 248, 0.76);
     }
 
-    .research-label {
+    .track-label {
       display: inline-flex;
       margin-bottom: 20px;
       padding: 6px 9px;
@@ -738,30 +742,49 @@
       text-transform: uppercase;
     }
 
-    .research-card:nth-child(2) .research-label,
-    .research-card:nth-child(5) .research-label {
-      color: var(--coral);
-      background: var(--coral-pale);
-    }
-
-    .research-card:nth-child(3) .research-label,
-    .research-card:nth-child(6) .research-label {
-      color: var(--blue);
-      background: var(--blue-pale);
-    }
-
-    .research-card h3 {
+    .track-card h3 {
       margin-bottom: 9px;
       font-family: Georgia, "Times New Roman", "Songti SC", serif;
-      font-size: 1.5rem;
+      font-size: 1.55rem;
       font-weight: 600;
-      line-height: 1.12;
     }
 
-    .research-card p {
-      margin: 0;
+    .track-card p {
       color: var(--ink-soft);
       font-size: 0.9rem;
+    }
+
+    .track-route {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .track-route li {
+      position: relative;
+      padding-left: 23px;
+      border-top: 1px solid var(--line);
+      font-size: 0.86rem;
+      font-weight: 760;
+    }
+
+    .track-route li::before {
+      position: absolute;
+      top: 14px;
+      left: 3px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      content: "";
+      background: var(--coral);
+    }
+
+    .track-route a {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      text-decoration-color: rgba(11, 107, 102, 0.35);
+      text-underline-offset: 4px;
     }
 
     .principles-wrap {
@@ -909,13 +932,13 @@
       }
 
       .course-grid,
-      .research-grid,
+      .track-grid,
       .principle-grid {
         grid-template-columns: 1fr;
       }
 
       .course-card,
-      .research-card {
+      .track-card {
         min-height: auto;
       }
     }
@@ -967,7 +990,8 @@
         justify-content: flex-start;
       }
 
-      .course-card .button {
+      .language-actions,
+      .language-actions .button {
         width: 100%;
       }
 
@@ -1170,75 +1194,41 @@
         </div>
 
         <div class="course-grid">
-          <article class="course-card" lang="en">
+          <article class="course-card" id="course-foundations">
             <div class="course-topline">
-              <span class="course-number" aria-hidden="true">EN</span>
-              <div class="course-meta" aria-label="English guide details">
+              <span class="course-number">01</span>
+              <div class="course-meta" aria-label="Foundations module details">
+                <span class="tag">Beginner</span>
                 <span class="tag">Foundations</span>
                 <span class="tag">Applied R</span>
-                <span class="tag">Self-paced</span>
               </div>
             </div>
             <h3>Foundations of Epidemiology</h3>
-            <p class="course-kicker">English edition</p>
+            <p class="course-title-zh" lang="zh-CN">流行病学基础、方法与常见研究</p>
             <p class="course-description">A detailed guide to concepts, measures, study designs, research questions, screening, outbreaks, causal inference, and reproducible analysis.</p>
             <p class="topic-line">Frequency measures · association · study design · bias · confounding · screening · outbreaks · causal thinking</p>
             <div class="language-actions">
-              <a class="button" href="epidemiology_basics_en.html" hreflang="en" aria-label="Open Foundations of Epidemiology in English">Open English guide <span aria-hidden="true">→</span></a>
+              <a class="button" href="epidemiology_basics_en.html" hreflang="en" aria-label="Open Foundations of Epidemiology in English">English edition <span aria-hidden="true">→</span></a>
+              <a class="button" href="epidemiology_basics_zh.html" lang="zh-CN" hreflang="zh-CN" aria-label="打开流行病学基础、方法与常见研究中文版">中文版 <span aria-hidden="true">→</span></a>
             </div>
           </article>
 
-          <article class="course-card" lang="zh-CN">
+          <article class="course-card accent-gold" id="course-research-design">
             <div class="course-topline">
-              <span class="course-number" aria-hidden="true">中</span>
-              <div class="course-meta" aria-label="中文教程信息">
-                <span class="tag">基础知识</span>
-                <span class="tag">R 实践</span>
-                <span class="tag">自主学习</span>
-              </div>
-            </div>
-            <h3>流行病学基础、方法与常见研究</h3>
-            <p class="course-kicker">中文版本</p>
-            <p class="course-description">详细讲解核心概念、疾病频率指标、研究设计、常见研究问题、筛查、暴发调查、因果推断以及可重复的数据分析。</p>
-            <p class="topic-line">疾病频率 · 关联指标 · 研究设计 · 偏倚 · 混杂 · 筛查 · 暴发调查 · 因果思维</p>
-            <div class="language-actions">
-              <a class="button" href="epidemiology_basics_zh.html" hreflang="zh-CN" aria-label="打开流行病学基础、方法与常见研究中文教程">打开中文教程 <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="course-card" lang="en">
-            <div class="course-topline">
-              <span class="course-number" aria-hidden="true">RD</span>
-              <div class="course-meta" aria-label="English research-design guide details">
-                <span class="tag">Study types</span>
+              <span class="course-number">02</span>
+              <div class="course-meta" aria-label="Research design module details">
+                <span class="tag">Beginner–Intermediate</span>
                 <span class="tag">Sampling</span>
                 <span class="tag">Protocol</span>
               </div>
             </div>
             <h3>Epidemiologic Research Designs</h3>
-            <p class="course-kicker">English research-design guide</p>
+            <p class="course-title-zh" lang="zh-CN">流行病学研究设计、研究类型、抽样与方案制定</p>
             <p class="course-description">An end-to-end guide to selecting study types, defining source and study populations, sampling participants, minimizing bias, and turning a question into an ethical, analyzable protocol.</p>
             <p class="topic-line">Design choice · target population · sampling frames · sample size · recruitment · protocol · ethics · analysis planning</p>
             <div class="language-actions">
-              <a class="button" href="epidemiology_research_designs_en.html" hreflang="en" aria-label="Open Epidemiologic Research Designs in English">Open research-design guide <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-
-          <article class="course-card" lang="zh-CN">
-            <div class="course-topline">
-              <span class="course-number" aria-hidden="true">研</span>
-              <div class="course-meta" aria-label="中文研究设计教程信息">
-                <span class="tag">研究类型</span>
-                <span class="tag">抽样方法</span>
-                <span class="tag">方案制定</span>
-              </div>
-            </div>
-            <h3>流行病学研究设计、研究类型、抽样与方案制定</h3>
-            <p class="course-kicker">中文研究设计教程</p>
-            <p class="course-description">从研究问题出发，系统选择研究类型，定义来源与研究人群，建立抽样框、招募样本、控制偏倚，并形成可实施、合乎伦理且可分析的研究方案。</p>
-            <p class="topic-line">设计选择 · 目标人群 · 抽样框 · 样本量 · 招募 · 研究方案 · 伦理 · 分析计划</p>
-            <div class="language-actions">
-              <a class="button" href="epidemiology_research_designs_zh.html" hreflang="zh-CN" aria-label="打开流行病学研究设计、研究类型、抽样与方案制定中文教程">打开研究设计教程 <span aria-hidden="true">→</span></a>
+              <a class="button" href="epidemiology_research_designs_en.html" hreflang="en" aria-label="Open Epidemiologic Research Designs in English">English edition <span aria-hidden="true">→</span></a>
+              <a class="button" href="epidemiology_research_designs_zh.html" lang="zh-CN" hreflang="zh-CN" aria-label="打开流行病学研究设计、研究类型、抽样与方案制定中文版">中文版 <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
@@ -1254,48 +1244,44 @@
         </p>
       </div>
 
-      <div class="research-grid">
-        <article class="research-card">
-          <span class="research-label">Distribution</span>
-          <h3>Who, where, and when?</h3>
-          <p>Descriptive studies quantify burden and reveal patterns across people, places, and time.</p>
+      <div class="track-grid">
+        <article class="track-card">
+          <span class="track-label">Describe <span lang="zh-CN">· 描述</span></span>
+          <h3>Population patterns</h3>
+          <p>Measure burden and identify patterns across people, places, and time before choosing a comparison.</p>
+          <ul class="track-route">
+            <li><a href="epidemiology_basics_en.html#measuring-disease-and-health-events">Frequency and burden <span lang="zh-CN">／疾病频率</span></a></li>
+            <li><a href="epidemiology_basics_en.html#screening-and-diagnostic-accuracy">Screening and diagnosis <span lang="zh-CN">／筛查诊断</span></a></li>
+            <li><a href="epidemiology_basics_en.html#outbreak-investigation">Outbreak investigation <span lang="zh-CN">／暴发调查</span></a></li>
+          </ul>
         </article>
 
-        <article class="research-card">
-          <span class="research-label">Determinants</span>
-          <h3>What factors are associated?</h3>
-          <p>Analytic studies compare groups to estimate how exposures relate to health outcomes.</p>
+        <article class="track-card">
+          <span class="track-label">Explain <span lang="zh-CN">· 解释</span></span>
+          <h3>Causes and interventions</h3>
+          <p>Build a credible comparison, quantify association, and distinguish causal claims from descriptive patterns.</p>
+          <ul class="track-route">
+            <li><a href="epidemiology_basics_en.html#measures-of-association-and-impact">Measures of association <span lang="zh-CN">／关联指标</span></a></li>
+            <li><a href="epidemiology_basics_en.html#causal-thinking">Causal reasoning <span lang="zh-CN">／因果思维</span></a></li>
+            <li><a href="epidemiology_research_designs_en.html#experimental-designs">Trials and quasi-experiments <span lang="zh-CN">／试验与准实验</span></a></li>
+          </ul>
         </article>
 
-        <article class="research-card">
-          <span class="research-label">Intervention</span>
-          <h3>What changes outcomes?</h3>
-          <p>Trials and quasi-experiments evaluate treatments, programs, policies, and preventive strategies.</p>
-        </article>
-
-        <article class="research-card">
-          <span class="research-label">Screening</span>
-          <h3>How well does a test work?</h3>
-          <p>Diagnostic research connects sensitivity and specificity with predictive values and prevalence.</p>
-        </article>
-
-        <article class="research-card">
-          <span class="research-label">Outbreaks</span>
-          <h3>What is happening now?</h3>
-          <p>Outbreak investigations combine case definitions, epidemic curves, attack rates, and rapid hypothesis testing.</p>
-        </article>
-
-        <article class="research-card">
-          <span class="research-label">Causality</span>
-          <h3>What would happen otherwise?</h3>
-          <p>Causal research defines a target contrast, makes assumptions explicit, and tests alternative explanations.</p>
+        <article class="track-card">
+          <span class="track-label">Plan <span lang="zh-CN">· 规划</span></span>
+          <h3>A defensible study</h3>
+          <p>Move from an answerable question to a sampled population, sufficient information, and a transparent protocol.</p>
+          <ul class="track-route">
+            <li><a href="epidemiology_research_designs_en.html#choosing-among-designs">Choose a design <span lang="zh-CN">／选择设计</span></a></li>
+            <li><a href="epidemiology_research_designs_en.html#probability-sampling">Obtain a sample <span lang="zh-CN">／获取样本</span></a></li>
+            <li><a href="epidemiology_research_designs_en.html#developing-the-protocol">Develop a protocol <span lang="zh-CN">／制定方案</span></a></li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <section class="principles-wrap shell section-border" id="about" aria-labelledby="about-title">
-      <div class="section">
-        <div class="principles">
+    <section class="principles-wrap shell" id="about" aria-labelledby="about-title">
+      <div class="principles">
           <h2 id="about-title">Learn the reasoning—not just the formula.</h2>
           <p>
             The V Lab tutorials treat epidemiology as disciplined reasoning under uncertainty. Code supports the argument; it does not replace design knowledge or scientific judgment.
@@ -1315,7 +1301,6 @@
               <span lang="zh-CN">让分析可检查、可复现，并把伦理、公平与隐私纳入研究全过程。</span>
             </div>
           </div>
-        </div>
       </div>
     </section>
   </main>
