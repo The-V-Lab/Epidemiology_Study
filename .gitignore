@@ -19,4 +19,5 @@ renv/staging/
 *_files/
 *.utf8.md
 *.knit.md
+Rplots.pdf
 .quarto/

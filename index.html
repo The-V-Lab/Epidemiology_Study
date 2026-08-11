@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A bilingual, self-paced epidemiology learning hub from The V Lab, covering measures of disease, study designs, bias, causal reasoning, common research questions, and reproducible R examples.">
+  <meta name="description" content="A bilingual, self-paced epidemiology learning hub from The V Lab, covering disease measures, study types, sampling, protocol design, bias, causal reasoning, and reproducible R examples.">
   <meta name="theme-color" content="#12383b">
   <meta name="color-scheme" content="light">
   <link rel="canonical" href="https://laboratoirev.github.io/Epidemiology_Study/">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The V Lab">
   <meta property="og:title" content="Epidemiology Learning Hub | The V Lab">
-  <meta property="og:description" content="Learn how epidemiologists move from population patterns to credible evidence through a bilingual curriculum with reproducible R examples.">
+  <meta property="og:description" content="Learn how epidemiologists move from population patterns to credible evidence through study design, sampling, protocol planning, and reproducible R examples.">
   <meta property="og:url" content="https://laboratoirev.github.io/Epidemiology_Study/">
   <meta property="og:image" content="https://laboratoirev.github.io/Epidemiology_Study/og-learning-hub.png">
   <meta property="og:image:width" content="1200">
@@ -23,7 +23,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Epidemiology Learning Hub | The V Lab">
-  <meta name="twitter:description" content="A bilingual learning path through epidemiologic measures, study designs, bias, causal reasoning, and applied research.">
+  <meta name="twitter:description" content="A bilingual learning path through epidemiologic measures, study types, sampling, protocol design, bias, causal reasoning, and applied research.">
   <meta name="twitter:image" content="https://laboratoirev.github.io/Epidemiology_Study/og-learning-hub.png">
 
   <title>Epidemiology Learning Hub | The V Lab</title>
@@ -604,6 +604,16 @@
       --accent-pale: var(--coral-pale);
     }
 
+    .course-card:nth-child(3) {
+      --accent: var(--blue);
+      --accent-pale: var(--blue-pale);
+    }
+
+    .course-card:nth-child(4) {
+      --accent: var(--violet);
+      --accent-pale: var(--violet-pale);
+    }
+
     .course-card:hover,
     .course-card:focus-within {
       border-color: rgba(11, 107, 102, 0.38);
@@ -614,6 +624,16 @@
     .course-card:nth-child(2):hover,
     .course-card:nth-child(2):focus-within {
       border-color: rgba(164, 66, 47, 0.38);
+    }
+
+    .course-card:nth-child(3):hover,
+    .course-card:nth-child(3):focus-within {
+      border-color: rgba(61, 112, 133, 0.38);
+    }
+
+    .course-card:nth-child(4):hover,
+    .course-card:nth-child(4):focus-within {
+      border-color: rgba(118, 97, 140, 0.38);
     }
 
     .course-topline {
@@ -1015,7 +1035,7 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#foundations">Foundations</a>
         <a href="#learning-path">Learning path</a>
-        <a href="#tutorials">Tutorials</a>
+        <a href="#tutorials">Guides</a>
         <a href="#research-map">Research map</a>
       </nav>
 
@@ -1040,10 +1060,10 @@
       </div>
 
       <aside class="hero-panel" aria-label="Curriculum at a glance">
-        <p class="panel-kicker">One curriculum · two editions</p>
-        <p class="course-count"><strong>2</strong> complete guides</p>
+        <p class="panel-kicker">Two modules · four editions</p>
+        <p class="course-count"><strong>4</strong> complete guides</p>
         <div class="stat-grid">
-          <div class="stat"><strong>EN + 中文</strong><span>Complete language guides</span></div>
+          <div class="stat"><strong>2 × EN + 中文</strong><span>Two bilingual modules</span></div>
           <div class="stat"><strong>R</strong><span>Reproducible examples</span></div>
           <div class="stat"><strong>10+</strong><span>Core topic areas</span></div>
           <div class="stat"><strong>Self-paced</strong><span>Learn in your own sequence</span></div>
@@ -1142,10 +1162,10 @@
     <section class="section library-section" id="tutorials" aria-labelledby="tutorials-title">
       <div class="shell">
         <div class="section-intro">
-          <h2 id="tutorials-title">Choose your edition.</h2>
+          <h2 id="tutorials-title">Choose your guide.</h2>
           <p>
-            Both tutorials cover epidemiologic foundations, practical use, common research designs, causal reasoning, and executable R examples.
-            <span lang="zh-CN">两份教程均涵盖流行病学基础、实际用法、常见研究设计、因果推断及可运行的 R 示例。</span>
+            Start with epidemiologic foundations, then use the research-design module to choose a study type, obtain a defensible sample, and build an ethical, analyzable protocol.
+            <span lang="zh-CN">先学习流行病学基础，再通过研究设计专题选择研究类型、获取合理样本，并形成合乎伦理且可分析的研究方案。</span>
           </p>
         </div>
 
@@ -1183,6 +1203,42 @@
             <p class="topic-line">疾病频率 · 关联指标 · 研究设计 · 偏倚 · 混杂 · 筛查 · 暴发调查 · 因果思维</p>
             <div class="language-actions">
               <a class="button" href="epidemiology_basics_zh.html" hreflang="zh-CN" aria-label="打开流行病学基础、方法与常见研究中文教程">打开中文教程 <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="course-card" lang="en">
+            <div class="course-topline">
+              <span class="course-number" aria-hidden="true">RD</span>
+              <div class="course-meta" aria-label="English research-design guide details">
+                <span class="tag">Study types</span>
+                <span class="tag">Sampling</span>
+                <span class="tag">Protocol</span>
+              </div>
+            </div>
+            <h3>Epidemiologic Research Designs</h3>
+            <p class="course-kicker">English research-design guide</p>
+            <p class="course-description">An end-to-end guide to selecting study types, defining source and study populations, sampling participants, minimizing bias, and turning a question into an ethical, analyzable protocol.</p>
+            <p class="topic-line">Design choice · target population · sampling frames · sample size · recruitment · protocol · ethics · analysis planning</p>
+            <div class="language-actions">
+              <a class="button" href="epidemiology_research_designs_en.html" hreflang="en" aria-label="Open Epidemiologic Research Designs in English">Open research-design guide <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="course-card" lang="zh-CN">
+            <div class="course-topline">
+              <span class="course-number" aria-hidden="true">研</span>
+              <div class="course-meta" aria-label="中文研究设计教程信息">
+                <span class="tag">研究类型</span>
+                <span class="tag">抽样方法</span>
+                <span class="tag">方案制定</span>
+              </div>
+            </div>
+            <h3>流行病学研究设计、研究类型、抽样与方案制定</h3>
+            <p class="course-kicker">中文研究设计教程</p>
+            <p class="course-description">从研究问题出发，系统选择研究类型，定义来源与研究人群，建立抽样框、招募样本、控制偏倚，并形成可实施、合乎伦理且可分析的研究方案。</p>
+            <p class="topic-line">设计选择 · 目标人群 · 抽样框 · 样本量 · 招募 · 研究方案 · 伦理 · 分析计划</p>
+            <div class="language-actions">
+              <a class="button" href="epidemiology_research_designs_zh.html" hreflang="zh-CN" aria-label="打开流行病学研究设计、研究类型、抽样与方案制定中文教程">打开研究设计教程 <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
@@ -1273,6 +1329,8 @@
       <a href="#learning-path">Learning path</a>
       <a href="epidemiology_basics_en.html" hreflang="en">English guide</a>
       <a href="epidemiology_basics_zh.html" lang="zh-CN" hreflang="zh-CN">中文教程</a>
+      <a href="epidemiology_research_designs_en.html" hreflang="en">Research design (EN)</a>
+      <a href="epidemiology_research_designs_zh.html" lang="zh-CN" hreflang="zh-CN">研究设计（中文）</a>
       <a href="https://github.com/LaboratoireV/Epidemiology_Study">GitHub</a>
     </nav>
   </footer>

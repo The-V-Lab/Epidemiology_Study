@@ -11,6 +11,8 @@ A bilingual epidemiology learning website for students and practitioners in publ
 - [Course home: Epidemiology Learning Hub](https://laboratoirev.github.io/Epidemiology_Study/)
 - [English guide: Foundations of Epidemiology](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_basics_en.html)
 - [Chinese guide: 流行病学基础、方法与常见研究](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_basics_zh.html)
+- [English guide: Epidemiologic Research Designs](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_research_designs_en.html)
+- [Chinese guide: 流行病学研究设计、研究类型、抽样与方案制定](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_research_designs_zh.html)
 
 ## What you will learn
 
@@ -20,15 +22,20 @@ A bilingual epidemiology learning website for students and practitioners in publ
 - recognize selection bias, information bias, confounding, effect modification, and random error;
 - evaluate screening and diagnostic tests, including how prevalence affects predictive values;
 - outline surveillance, outbreak investigation, DAG, and target-trial reasoning workflows;
-- use R for data checks, descriptive analysis, introductory regression, and reproducible reporting; and
-- turn common research topics into clear, ethical, and answerable questions.
+- use R for data checks, descriptive analysis, introductory regression, and reproducible reporting;
+- turn common research topics into clear, ethical, and answerable questions;
+- compare common study types by question, strengths, limitations, and likely biases;
+- define target and source populations, construct sampling frames, and choose probability or non-probability sampling methods; and
+- develop a protocol covering sample size, recruitment, measurement, quality control, ethics, and analysis planning.
 
 ## Repository contents
 
 - `index.html`: bilingual learning-hub home and course navigation.
 - `epidemiology_basics_en.html`: complete English guide.
 - `epidemiology_basics_zh.html`: complete Chinese guide.
-- `styles.css`: shared branding, mobile, and print styles for both guides.
+- `epidemiology_research_designs_en.html`: English guide to study design, study types, and sampling.
+- `epidemiology_research_designs_zh.html`: Chinese guide to study design, study types, and sampling.
+- `styles.css`: shared branding, mobile, and print styles for all four guides.
 - `includes/vlab-brand.html`: The V Lab home link shown above each guide.
 - `og-learning-hub.png`: social-sharing preview image.
 - `render.R`: rebuilds the HTML guides when local Rmd sources are present.
