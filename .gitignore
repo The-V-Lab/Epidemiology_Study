@@ -1,1 +1,22 @@
+.DS_Store
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+
+# Local project state and dependencies
+.Rproj.user/
+.Rlib/
+.tools/
+renv/library/
+renv/staging/
+
+# Local-only R Markdown sources (all folders and letter cases)
 *.[Rr][Mm][Dd]
+
+# R Markdown and Quarto intermediate output
+*_cache/
+*_files/
+*.utf8.md
+*.knit.md
+.quarto/

@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A bilingual, self-paced epidemiology learning hub from The V Lab, covering measures of disease, study designs, bias, causal reasoning, common research questions, and reproducible R examples.">
+  <meta name="theme-color" content="#12383b">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://laboratoirev.github.io/Epidemiology_Study/">
+  <link rel="alternate" hreflang="en" href="https://laboratoirev.github.io/Epidemiology_Study/epidemiology_basics_en.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://laboratoirev.github.io/Epidemiology_Study/epidemiology_basics_zh.html">
+  <link rel="alternate" hreflang="x-default" href="https://laboratoirev.github.io/Epidemiology_Study/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The V Lab">
+  <meta property="og:title" content="Epidemiology Learning Hub | The V Lab">
+  <meta property="og:description" content="Learn how epidemiologists move from population patterns to credible evidence through a bilingual curriculum with reproducible R examples.">
+  <meta property="og:url" content="https://laboratoirev.github.io/Epidemiology_Study/">
+  <meta property="og:image" content="https://laboratoirev.github.io/Epidemiology_Study/og-learning-hub.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The V Lab Epidemiology Learning Hub">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Epidemiology Learning Hub | The V Lab">
+  <meta name="twitter:description" content="A bilingual learning path through epidemiologic measures, study designs, bias, causal reasoning, and applied research.">
+  <meta name="twitter:image" content="https://laboratoirev.github.io/Epidemiology_Study/og-learning-hub.png">
+
+  <title>Epidemiology Learning Hub | The V Lab</title>
+
+  <style>
+    :root {
+      --ink: #12383b;
+      --ink-deep: #092a2d;
+      --ink-soft: #50686b;
+      --paper: #f3efe6;
+      --surface: #fffdf8;
+      --surface-soft: #f9f6ef;
+      --teal: #0b6b66;
+      --teal-dark: #07504d;
+      --mint: #c7e3db;
+      --mint-pale: #e9f5f1;
+      --coral: #a4422f;
+      --coral-pale: #f9e9e3;
+      --gold: #8a5a10;
+      --gold-pale: #f7edda;
+      --blue: #3d7085;
+      --blue-pale: #e3eef2;
+      --violet: #76618c;
+      --violet-pale: #eee9f3;
+      --focus: #c2410c;
+      --line: rgba(18, 56, 59, 0.15);
+      --line-strong: rgba(18, 56, 59, 0.28);
+      --shadow-sm: 0 10px 28px rgba(15, 49, 52, 0.08);
+      --shadow-lg: 0 24px 64px rgba(15, 49, 52, 0.14);
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 32px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 91% 7%, rgba(199, 227, 219, 0.72), transparent 27rem),
+        radial-gradient(circle at 8% 31%, rgba(249, 233, 227, 0.64), transparent 24rem),
+        linear-gradient(180deg, #fbfaf6 0%, var(--paper) 40%, #f8f5ee 100%);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+                   "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-wrap: balance;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      padding: 10px 15px;
+      border-radius: 9px;
+      color: #fff;
+      background: var(--ink-deep);
+      font-weight: 850;
+      text-decoration: none;
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .header-wrap {
+      position: sticky;
+      z-index: 30;
+      top: 0;
+      border-bottom: 1px solid rgba(18, 56, 59, 0.10);
+      background: rgba(251, 250, 246, 0.88);
+      backdrop-filter: blur(18px);
+    }
+
+    .site-header {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      min-height: 44px;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 11px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      place-items: center;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--teal);
+      box-shadow: 0 9px 20px rgba(11, 107, 102, 0.20);
+      letter-spacing: 0;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-left: auto;
+    }
+
+    .main-nav a {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+      font-weight: 780;
+      text-decoration: none;
+    }
+
+    .main-nav a:hover {
+      color: var(--teal-dark);
+    }
+
+    .repo-link {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      padding: 8px 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      color: var(--ink) !important;
+      background: rgba(255, 253, 248, 0.72);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.72fr);
+      gap: clamp(48px, 8vw, 104px);
+      align-items: center;
+      min-height: 720px;
+      padding-block: clamp(72px, 10vw, 124px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      color: var(--teal-dark);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 34px;
+      height: 2px;
+      content: "";
+      background: var(--coral);
+    }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 22px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: clamp(3.45rem, 7vw, 6.65rem);
+      font-weight: 500;
+      letter-spacing: -0.058em;
+      line-height: 0.94;
+    }
+
+    .hero-zh {
+      margin-bottom: 24px;
+      color: var(--teal-dark);
+      font-family: Georgia, "Songti SC", "STSong", serif;
+      font-size: clamp(1.45rem, 2.8vw, 2.15rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-copy {
+      max-width: 730px;
+      margin-bottom: 34px;
+      color: var(--ink-soft);
+      font-size: clamp(1.02rem, 1.7vw, 1.18rem);
+    }
+
+    .hero-copy span {
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    .hero-actions,
+    .language-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 11px 18px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 850;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: var(--teal);
+      box-shadow: 0 12px 24px rgba(11, 107, 102, 0.20);
+    }
+
+    .button-primary:hover {
+      background: var(--teal-dark);
+    }
+
+    .button-secondary {
+      border-color: var(--line-strong);
+      background: rgba(255, 253, 248, 0.76);
+    }
+
+    .button-secondary:hover {
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .arrow {
+      font-size: 1.2em;
+      line-height: 1;
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: clamp(28px, 4vw, 40px);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 253, 248, 0.87);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-panel::after {
+      position: absolute;
+      right: -74px;
+      bottom: -74px;
+      width: 190px;
+      height: 190px;
+      border: 30px solid var(--mint);
+      border-radius: 50%;
+      content: "";
+      opacity: 0.72;
+    }
+
+    .panel-kicker {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 8px;
+      color: var(--ink-soft);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .course-count {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 26px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: clamp(2.6rem, 5vw, 4.25rem);
+      line-height: 1;
+    }
+
+    .course-count strong {
+      color: var(--teal);
+      font-weight: 500;
+    }
+
+    .stat-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .stat {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(249, 246, 239, 0.82);
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 1.08rem;
+    }
+
+    .stat span {
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+    }
+
+    .mini-route {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mini-route li {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .mini-route span {
+      display: grid;
+      width: 25px;
+      height: 25px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--teal);
+      font-size: 0.68rem;
+      font-weight: 900;
+    }
+
+    .section {
+      padding-block: clamp(78px, 9vw, 118px);
+    }
+
+    .section + .section,
+    .section-border {
+      border-top: 1px solid var(--line);
+    }
+
+    .section-intro {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+      gap: clamp(28px, 6vw, 74px);
+      align-items: end;
+      margin-bottom: 46px;
+    }
+
+    .section-intro h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: clamp(2.35rem, 5vw, 4.35rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .section-intro p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .section-intro p span {
+      display: inline-block;
+      margin-top: 7px;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .concept-card {
+      min-height: 235px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 248, 0.80);
+    }
+
+    .concept-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 30px;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--teal-dark);
+      background: var(--mint);
+      font-size: 0.74rem;
+      font-weight: 900;
+    }
+
+    .concept-card:nth-child(2) .concept-mark {
+      color: var(--gold);
+      background: var(--gold-pale);
+    }
+
+    .concept-card:nth-child(3) .concept-mark {
+      color: var(--coral);
+      background: var(--coral-pale);
+    }
+
+    .concept-card:nth-child(4) .concept-mark {
+      color: var(--violet);
+      background: var(--violet-pale);
+    }
+
+    .concept-card h3 {
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.12;
+    }
+
+    .concept-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .path-step {
+      display: flex;
+      min-height: 270px;
+      flex-direction: column;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 248, 0.80);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .path-step:hover,
+    .path-step:focus-within {
+      border-color: rgba(11, 107, 102, 0.40);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-3px);
+    }
+
+    .step-number {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 30px;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--teal-dark);
+      background: var(--mint);
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    .path-step h3 {
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.12;
+    }
+
+    .path-step p {
+      margin-bottom: 20px;
+      color: var(--ink-soft);
+      font-size: 0.87rem;
+    }
+
+    .step-link {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      gap: 7px;
+      margin-top: auto;
+      color: var(--teal-dark);
+      font-size: 0.83rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .library-section {
+      background: rgba(255, 253, 248, 0.38);
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      --accent: var(--teal);
+      --accent-pale: var(--mint-pale);
+      display: flex;
+      min-height: 455px;
+      flex-direction: column;
+      padding: clamp(28px, 4vw, 40px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.70) inset;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .course-card:nth-child(2) {
+      --accent: var(--coral);
+      --accent-pale: var(--coral-pale);
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+      border-color: rgba(11, 107, 102, 0.38);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .course-card:nth-child(2):hover,
+    .course-card:nth-child(2):focus-within {
+      border-color: rgba(164, 66, 47, 0.38);
+    }
+
+    .course-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    .course-number {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--accent);
+      background: var(--accent-pale);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .course-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      background: var(--surface-soft);
+      font-size: 0.7rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .course-card h3 {
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    .course-kicker {
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-family: Georgia, "Songti SC", "STSong", serif;
+      font-size: 1.06rem;
+      font-weight: 700;
+    }
+
+    .course-description {
+      margin-bottom: 18px;
+      color: var(--ink-soft);
+    }
+
+    .topic-line {
+      margin-bottom: 28px;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 760;
+    }
+
+    .language-actions {
+      margin-top: auto;
+    }
+
+    .course-card .button {
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .research-card {
+      min-height: 250px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 248, 0.76);
+    }
+
+    .research-label {
+      display: inline-flex;
+      margin-bottom: 20px;
+      padding: 6px 9px;
+      border-radius: 8px;
+      color: var(--teal-dark);
+      background: var(--mint);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .research-card:nth-child(2) .research-label,
+    .research-card:nth-child(5) .research-label {
+      color: var(--coral);
+      background: var(--coral-pale);
+    }
+
+    .research-card:nth-child(3) .research-label,
+    .research-card:nth-child(6) .research-label {
+      color: var(--blue);
+      background: var(--blue-pale);
+    }
+
+    .research-card h3 {
+      margin-bottom: 9px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.12;
+    }
+
+    .research-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    .principles-wrap {
+      padding-bottom: clamp(84px, 10vw, 126px);
+    }
+
+    .principles {
+      padding: clamp(38px, 6vw, 68px);
+      border-radius: var(--radius-lg);
+      color: #eef8f5;
+      background:
+        radial-gradient(circle at 90% 16%, rgba(199, 227, 219, 0.14), transparent 20rem),
+        var(--ink-deep);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .principles h2 {
+      max-width: 800px;
+      margin-bottom: 16px;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: clamp(2.25rem, 5vw, 4.15rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .principles > p {
+      max-width: 800px;
+      color: #bfd3d0;
+    }
+
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .principle {
+      padding: 22px;
+      border: 1px solid rgba(238, 248, 245, 0.16);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .principle strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .principle span {
+      color: #b8ceca;
+      font-size: 0.85rem;
+    }
+
+    .site-footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 30px;
+      align-items: end;
+      padding-block: 42px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+    }
+
+    .footer-title {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-weight: 850;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      font-weight: 750;
+      text-underline-offset: 4px;
+    }
+
+    @media (max-width: 1040px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-panel {
+        max-width: 720px;
+      }
+
+      .concept-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .path-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .path-step:last-child {
+        grid-column: 1 / -1;
+        min-height: 220px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      html {
+        scroll-padding-top: 24px;
+      }
+
+      .header-wrap {
+        position: static;
+      }
+
+      .site-header {
+        flex-wrap: wrap;
+        padding-block: 14px;
+      }
+
+      .main-nav {
+        width: 100%;
+        order: 3;
+        justify-content: space-between;
+        margin-left: 0;
+        padding-top: 11px;
+        border-top: 1px solid var(--line);
+      }
+
+      .repo-link {
+        margin-left: auto;
+      }
+
+      .section-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .course-grid,
+      .research-grid,
+      .principle-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .course-card,
+      .research-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 590px) {
+      .shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      h1 {
+        font-size: clamp(3.05rem, 16vw, 4.65rem);
+      }
+
+      .main-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px 12px;
+      }
+
+      .main-nav a {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-actions,
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .stat-grid,
+      .concept-grid,
+      .path-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .path-step:last-child {
+        grid-column: auto;
+      }
+
+      .path-step {
+        min-height: 225px;
+      }
+
+      .course-topline {
+        align-items: flex-start;
+      }
+
+      .course-meta {
+        justify-content: flex-start;
+      }
+
+      .course-card .button {
+        width: 100%;
+      }
+
+      .site-footer {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+
+    @media print {
+      .header-wrap,
+      .hero-actions,
+      .footer-links {
+        display: none;
+      }
+
+      body {
+        color: #111;
+        background: #fff;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-block: 2rem;
+      }
+
+      .section {
+        padding-block: 2rem;
+      }
+
+      .hero-panel,
+      .course-card,
+      .principles {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to learning content <span lang="zh-CN">/ 跳到学习内容</span></a>
+
+  <div class="header-wrap">
+    <header class="site-header shell">
+      <a class="brand" href="index.html" aria-label="The V Lab epidemiology home" aria-current="page">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span>The V Lab</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#foundations">Foundations</a>
+        <a href="#learning-path">Learning path</a>
+        <a href="#tutorials">Tutorials</a>
+        <a href="#research-map">Research map</a>
+      </nav>
+
+      <a class="repo-link" href="https://github.com/LaboratoireV/Epidemiology_Study" aria-label="View Epidemiology Study on GitHub">Repository</a>
+    </header>
+  </div>
+
+  <main id="main-content" tabindex="-1">
+    <section class="hero shell" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Bilingual epidemiology curriculum <span lang="zh-CN">· 双语流行病学课程</span></p>
+        <h1 id="page-title">Learn epidemiology as a way of thinking.</h1>
+        <p class="hero-zh" lang="zh-CN">把流行病学学成一种思考方式。</p>
+        <p class="hero-copy">
+          Follow the full chain from population patterns and study design to bias, causal interpretation, and reproducible analysis in R.
+          <span lang="zh-CN">从人群疾病模式与研究设计出发，系统学习偏倚、因果解释以及可重复的 R 分析。</span>
+        </p>
+        <div class="hero-actions" aria-label="Choose a tutorial language">
+          <a class="button button-primary" href="epidemiology_basics_en.html" hreflang="en">Start in English <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="epidemiology_basics_zh.html" lang="zh-CN" hreflang="zh-CN">开始中文学习 <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Curriculum at a glance">
+        <p class="panel-kicker">One curriculum · two editions</p>
+        <p class="course-count"><strong>2</strong> complete guides</p>
+        <div class="stat-grid">
+          <div class="stat"><strong>EN + 中文</strong><span>Complete language guides</span></div>
+          <div class="stat"><strong>R</strong><span>Reproducible examples</span></div>
+          <div class="stat"><strong>10+</strong><span>Core topic areas</span></div>
+          <div class="stat"><strong>Self-paced</strong><span>Learn in your own sequence</span></div>
+        </div>
+        <ol class="mini-route" aria-label="Three-part learning route">
+          <li><span>01</span> Describe disease in populations</li>
+          <li><span>02</span> Design and evaluate studies</li>
+          <li><span>03</span> Interpret evidence responsibly</li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="section section-border shell" id="foundations" aria-labelledby="foundations-title">
+      <div class="section-intro">
+        <h2 id="foundations-title">See the field as one connected system.</h2>
+        <p>
+          Epidemiology links a population question to a defensible measure, a study design, an analysis, and a carefully bounded conclusion.
+          <span lang="zh-CN">流行病学把人群问题、合理指标、研究设计、统计分析和审慎结论连接成一条完整证据链。</span>
+        </p>
+      </div>
+
+      <div class="concept-grid">
+        <article class="concept-card">
+          <span class="concept-mark" aria-hidden="true">01</span>
+          <h3>Measure frequency</h3>
+          <p>Distinguish prevalence, cumulative incidence, incidence rate, risk, odds, person-time, and mortality measures.</p>
+        </article>
+
+        <article class="concept-card">
+          <span class="concept-mark" aria-hidden="true">02</span>
+          <h3>Choose a design</h3>
+          <p>Match descriptive, cross-sectional, cohort, case-control, ecological, and experimental designs to the research question.</p>
+        </article>
+
+        <article class="concept-card">
+          <span class="concept-mark" aria-hidden="true">03</span>
+          <h3>Protect validity</h3>
+          <p>Recognize selection bias, information bias, confounding, random error, effect modification, and limits to generalizability.</p>
+        </article>
+
+        <article class="concept-card">
+          <span class="concept-mark" aria-hidden="true">04</span>
+          <h3>Interpret evidence</h3>
+          <p>Read estimates, confidence intervals, screening metrics, and causal claims without overstating what the data can support.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="learning-path" aria-labelledby="learning-path-title">
+      <div class="section-intro">
+        <h2 id="learning-path-title">A route from question to evidence.</h2>
+        <p>
+          Use this sequence for a first pass through either guide, then return to individual sections when planning or reviewing a study.
+          <span lang="zh-CN">初学时可按此顺序阅读；设计或评审研究时，再把每一部分当作随时可查的参考。</span>
+        </p>
+      </div>
+
+      <ol class="path-grid">
+        <li class="path-step">
+          <span class="step-number">01</span>
+          <h3>Frame the question</h3>
+          <p>Specify the population, exposure, comparison, outcome, time, and purpose of the study.</p>
+          <a class="step-link" href="#tutorials">Choose an edition <span aria-hidden="true">→</span></a>
+        </li>
+
+        <li class="path-step">
+          <span class="step-number">02</span>
+          <h3>Describe the pattern</h3>
+          <p>Ask who is affected, where, when, and how often before moving to explanations.</p>
+          <a class="step-link" href="epidemiology_basics_en.html">Open the English guide <span aria-hidden="true">→</span></a>
+        </li>
+
+        <li class="path-step">
+          <span class="step-number">03</span>
+          <h3>Build the comparison</h3>
+          <p>Select a design and comparison group that can answer the question with minimal avoidable bias.</p>
+          <a class="step-link" href="epidemiology_basics_zh.html" lang="zh-CN">打开中文教程 <span aria-hidden="true">→</span></a>
+        </li>
+
+        <li class="path-step">
+          <span class="step-number">04</span>
+          <h3>Estimate and assess</h3>
+          <p>Calculate measures of association and examine chance, bias, confounding, and model assumptions.</p>
+          <a class="step-link" href="#research-map">Explore research questions <span aria-hidden="true">→</span></a>
+        </li>
+
+        <li class="path-step">
+          <span class="step-number">05</span>
+          <h3>Communicate limits</h3>
+          <p>Report the estimate, uncertainty, assumptions, relevance, and remaining uncertainty—not just a verdict.</p>
+          <a class="step-link" href="#about">Read our principles <span aria-hidden="true">→</span></a>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section library-section" id="tutorials" aria-labelledby="tutorials-title">
+      <div class="shell">
+        <div class="section-intro">
+          <h2 id="tutorials-title">Choose your edition.</h2>
+          <p>
+            Both tutorials cover epidemiologic foundations, practical use, common research designs, causal reasoning, and executable R examples.
+            <span lang="zh-CN">两份教程均涵盖流行病学基础、实际用法、常见研究设计、因果推断及可运行的 R 示例。</span>
+          </p>
+        </div>
+
+        <div class="course-grid">
+          <article class="course-card" lang="en">
+            <div class="course-topline">
+              <span class="course-number" aria-hidden="true">EN</span>
+              <div class="course-meta" aria-label="English guide details">
+                <span class="tag">Foundations</span>
+                <span class="tag">Applied R</span>
+                <span class="tag">Self-paced</span>
+              </div>
+            </div>
+            <h3>Foundations of Epidemiology</h3>
+            <p class="course-kicker">English edition</p>
+            <p class="course-description">A detailed guide to concepts, measures, study designs, research questions, screening, outbreaks, causal inference, and reproducible analysis.</p>
+            <p class="topic-line">Frequency measures · association · study design · bias · confounding · screening · outbreaks · causal thinking</p>
+            <div class="language-actions">
+              <a class="button" href="epidemiology_basics_en.html" hreflang="en" aria-label="Open Foundations of Epidemiology in English">Open English guide <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="course-card" lang="zh-CN">
+            <div class="course-topline">
+              <span class="course-number" aria-hidden="true">中</span>
+              <div class="course-meta" aria-label="中文教程信息">
+                <span class="tag">基础知识</span>
+                <span class="tag">R 实践</span>
+                <span class="tag">自主学习</span>
+              </div>
+            </div>
+            <h3>流行病学基础、方法与常见研究</h3>
+            <p class="course-kicker">中文版本</p>
+            <p class="course-description">详细讲解核心概念、疾病频率指标、研究设计、常见研究问题、筛查、暴发调查、因果推断以及可重复的数据分析。</p>
+            <p class="topic-line">疾病频率 · 关联指标 · 研究设计 · 偏倚 · 混杂 · 筛查 · 暴发调查 · 因果思维</p>
+            <div class="language-actions">
+              <a class="button" href="epidemiology_basics_zh.html" hreflang="zh-CN" aria-label="打开流行病学基础、方法与常见研究中文教程">打开中文教程 <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="research-map" aria-labelledby="research-map-title">
+      <div class="section-intro">
+        <h2 id="research-map-title">Common research, organized by purpose.</h2>
+        <p>
+          A method becomes useful only after the research purpose is clear. These recurring question types provide a practical map of the field.
+          <span lang="zh-CN">先明确研究目的，再选择方法。以下常见问题类型构成了一张实用的流行病学研究地图。</span>
+        </p>
+      </div>
+
+      <div class="research-grid">
+        <article class="research-card">
+          <span class="research-label">Distribution</span>
+          <h3>Who, where, and when?</h3>
+          <p>Descriptive studies quantify burden and reveal patterns across people, places, and time.</p>
+        </article>
+
+        <article class="research-card">
+          <span class="research-label">Determinants</span>
+          <h3>What factors are associated?</h3>
+          <p>Analytic studies compare groups to estimate how exposures relate to health outcomes.</p>
+        </article>
+
+        <article class="research-card">
+          <span class="research-label">Intervention</span>
+          <h3>What changes outcomes?</h3>
+          <p>Trials and quasi-experiments evaluate treatments, programs, policies, and preventive strategies.</p>
+        </article>
+
+        <article class="research-card">
+          <span class="research-label">Screening</span>
+          <h3>How well does a test work?</h3>
+          <p>Diagnostic research connects sensitivity and specificity with predictive values and prevalence.</p>
+        </article>
+
+        <article class="research-card">
+          <span class="research-label">Outbreaks</span>
+          <h3>What is happening now?</h3>
+          <p>Outbreak investigations combine case definitions, epidemic curves, attack rates, and rapid hypothesis testing.</p>
+        </article>
+
+        <article class="research-card">
+          <span class="research-label">Causality</span>
+          <h3>What would happen otherwise?</h3>
+          <p>Causal research defines a target contrast, makes assumptions explicit, and tests alternative explanations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="principles-wrap shell section-border" id="about" aria-labelledby="about-title">
+      <div class="section">
+        <div class="principles">
+          <h2 id="about-title">Learn the reasoning—not just the formula.</h2>
+          <p>
+            The V Lab tutorials treat epidemiology as disciplined reasoning under uncertainty. Code supports the argument; it does not replace design knowledge or scientific judgment.
+            <span lang="zh-CN">The V Lab 将流行病学视为在不确定性下进行的严谨推理：代码用于支撑论证，而不能取代研究设计知识与科学判断。</span>
+          </p>
+          <div class="principle-grid">
+            <div class="principle">
+              <strong>Question before method</strong>
+              <span lang="zh-CN">先定义人群、时间与目标，再选择指标、设计和模型。</span>
+            </div>
+            <div class="principle">
+              <strong>Estimates with uncertainty</strong>
+              <span lang="zh-CN">同时报告效应大小、区间估计、假设与局限，而不只报告显著性。</span>
+            </div>
+            <div class="principle">
+              <strong>Reproducibility with responsibility</strong>
+              <span lang="zh-CN">让分析可检查、可复现，并把伦理、公平与隐私纳入研究全过程。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div>
+      <span class="footer-title">The V Lab · Epidemiology Learning Hub</span>
+      <span>A bilingual learning resource for public health and health research. <span lang="zh-CN">面向公共卫生与健康研究的双语学习资源。</span></span>
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#learning-path">Learning path</a>
+      <a href="epidemiology_basics_en.html" hreflang="en">English guide</a>
+      <a href="epidemiology_basics_zh.html" lang="zh-CN" hreflang="zh-CN">中文教程</a>
+      <a href="https://github.com/LaboratoireV/Epidemiology_Study">GitHub</a>
+    </nav>
+  </footer>
+</body>
+</html>

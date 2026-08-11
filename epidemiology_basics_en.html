@@ -13,7 +13,7 @@
 
 <meta name="date" content="2026-08-11" />
 
-<title>Foundations of Epidemiology</title>
+<title>Foundations of Epidemiology | The V Lab</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -2643,6 +2643,26 @@ window.onload = function() {
   PagedTableDoc.initAll();
 };
 </script>
+<style type="text/css">
+a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
+.hasAnchor:hover a.anchor-section {visibility: visible;}
+ul > li > .anchor-section {display: none;}
+</style>
+<style type="text/css">
+a.anchor-section::before {content: '#';font-size: 80%;}
+</style>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  // If section divs is used, we need to put the anchor in the child header
+  const headers = document.querySelectorAll("div.hasAnchor.section[class*='level'] > :first-child")
+
+  headers.forEach(function (x) {
+    // Add to the header node
+    if (!x.classList.contains('hasAnchor')) x.classList.add('hasAnchor')
+    // Remove from the section or div created by Pandoc
+    x.parentElement.classList.remove('hasAnchor')
+  })
+})
+</script>
 
 <style type="text/css">
 code{white-space: pre-wrap;}
@@ -2769,6 +2789,663 @@ margin-right: -30px;
 
 
 
+<style type="text/css">:root {
+--epi-navy: #16354b;
+--epi-navy-soft: #274f62;
+--epi-teal: #0b6b66;
+--epi-teal-dark: #07524f;
+--epi-green: #39735f;
+--epi-gold: #9a650d;
+--epi-coral: #a74832;
+--epi-ink: #1e3440;
+--epi-muted: #526872;
+--epi-paper: #f4f8f6;
+--epi-surface: #ffffff;
+--epi-line: #d5e2de;
+--epi-teal-pale: #e8f5f1;
+--epi-blue-pale: #edf5f8;
+--epi-green-pale: #edf7ef;
+--epi-amber-pale: #fff6df;
+--epi-rose-pale: #fff0ec;
+--epi-focus: #b43f08;
+--epi-shadow: 0 12px 30px rgba(22, 53, 75, 0.1);
+
+--navy: var(--epi-navy);
+--navy-soft: var(--epi-navy-soft);
+--teal: var(--epi-teal);
+--teal-dark: var(--epi-teal-dark);
+--ink: var(--epi-ink);
+--muted: var(--epi-muted);
+--paper: var(--epi-paper);
+--surface: var(--epi-surface);
+--line: var(--epi-line);
+--teal-pale: var(--epi-teal-pale);
+--blue-pale: var(--epi-blue-pale);
+--amber-pale: var(--epi-amber-pale);
+--rose-pale: var(--epi-rose-pale);
+--focus: var(--epi-focus);
+}
+html {
+scroll-behavior: smooth;
+scroll-padding-top: 1.5rem;
+}
+html body {
+color: var(--epi-ink);
+background:
+radial-gradient(circle at 96% 3%, rgba(159, 211, 197, 0.23), transparent 24rem),
+var(--epi-paper);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+"Hiragino Sans GB", "Microsoft YaHei", Roboto, Arial, sans-serif;
+font-size: 16px;
+line-height: 1.68;
+overflow-wrap: break-word;
+}
+html[lang^="zh"] body {
+line-height: 1.78;
+}
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+.main-container {
+max-width: 1180px;
+padding: 0 clamp(1rem, 3vw, 2.25rem) 4rem;
+}
+.skip-link {
+position: fixed;
+z-index: 2000;
+top: 0.75rem;
+left: 0.75rem;
+padding: 0.65rem 0.9rem;
+color: #fff;
+background: var(--epi-navy);
+border-radius: 0.5rem;
+font-weight: 750;
+text-decoration: none;
+transform: translateY(-180%);
+}
+.skip-link:focus {
+transform: translateY(0);
+}
+.vlab-brand {
+display: inline-flex;
+align-items: center;
+gap: 0.65rem;
+width: fit-content;
+min-height: 44px;
+margin: 1.25rem 0 0.55rem;
+color: var(--epi-navy);
+font-weight: 850;
+letter-spacing: 0.085em;
+line-height: 1;
+text-decoration: none;
+text-transform: uppercase;
+}
+.vlab-brand:hover {
+color: var(--epi-teal-dark);
+text-decoration: none;
+}
+.vlab-mark {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2.15rem;
+height: 2.15rem;
+flex: 0 0 2.15rem;
+color: #fff;
+background: linear-gradient(145deg, var(--epi-navy), var(--epi-teal));
+border-radius: 10px;
+box-shadow: 0 6px 16px rgba(11, 107, 102, 0.2);
+font-size: 1rem;
+letter-spacing: 0;
+}
+.vlab-name {
+font-size: 0.9rem;
+}
+.vlab-brand + #header {
+margin-top: 0.55rem;
+}
+#header {
+position: relative;
+margin: 1.35rem 0 2.25rem;
+padding: clamp(1.5rem, 4vw, 2.8rem);
+overflow: hidden;
+color: #fff;
+background: linear-gradient(135deg, var(--epi-navy) 0%, var(--epi-teal) 72%, var(--epi-green) 100%);
+border-radius: 18px;
+box-shadow: var(--epi-shadow);
+}
+#header::after {
+position: absolute;
+right: -5rem;
+bottom: -7rem;
+width: 17rem;
+height: 17rem;
+content: "";
+background: rgba(255, 255, 255, 0.07);
+border-radius: 50%;
+pointer-events: none;
+}
+#header h1,
+#header h3,
+#header h4,
+#header .author,
+#header .date {
+position: relative;
+z-index: 1;
+color: #fff;
+}
+#header h1 {
+max-width: 900px;
+margin-top: 0;
+font-size: clamp(2rem, 5vw, 3.4rem);
+line-height: 1.08;
+letter-spacing: -0.025em;
+}
+#header .subtitle {
+max-width: 780px;
+margin-top: 0.8rem;
+font-weight: 400;
+line-height: 1.45;
+opacity: 0.95;
+}
+#header .author,
+#header .date {
+display: inline-block;
+margin: 0.45rem 1rem 0 0;
+font-size: 13px;
+opacity: 0.87;
+}
+body h1,
+body h2,
+body h3,
+body h4 {
+color: var(--epi-navy);
+line-height: 1.25;
+font-weight: 700;
+text-wrap: balance;
+}
+body h2 {
+margin-top: 3.1rem;
+padding-bottom: 0.48rem;
+border-bottom: 2px solid var(--epi-line);
+}
+body h3 {
+margin-top: 2rem;
+}
+p,
+li {
+max-width: 78ch;
+}
+body a {
+color: #075c94;
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-underline-offset: 2px;
+}
+body a:hover {
+color: #03466f;
+}
+a:focus-visible,
+summary:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+outline: 3px solid var(--epi-focus);
+outline-offset: 3px;
+}
+.language-switch {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: flex-end;
+gap: 0.55rem;
+margin: -0.65rem 0 1rem;
+font-size: 14px;
+}
+.language-switch a,
+.language-switch span {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 44px;
+padding: 0.45rem 0.95rem;
+color: var(--epi-navy);
+background: var(--epi-surface);
+border: 1px solid var(--epi-line);
+border-radius: 999px;
+text-decoration: none;
+}
+.language-switch a:hover {
+color: var(--epi-teal-dark);
+background: var(--epi-teal-pale);
+border-color: #a8cec4;
+}
+.language-switch .language-option.active {
+color: #fff;
+background: var(--epi-teal);
+border-color: var(--epi-teal);
+font-weight: 750;
+cursor: default;
+}
+.language-switch .language-home {
+margin-right: auto;
+color: var(--epi-navy);
+font-weight: 750;
+}
+
+body .note,
+body .tip,
+body .warning,
+body .formula-box,
+body .well-note,
+body .well-caution {
+max-width: 82ch;
+margin: 1.35rem 0;
+padding: 1rem 1.15rem;
+border: 0;
+border-left: 5px solid;
+border-radius: 0 10px 10px 0;
+box-shadow: 0 3px 12px rgba(22, 53, 75, 0.035);
+}
+body .note,
+body .well-note {
+background: var(--epi-blue-pale);
+border-left-color: #2879a4;
+}
+body .tip {
+background: var(--epi-green-pale);
+border-left-color: var(--epi-green);
+}
+body .warning,
+body .well-caution {
+background: var(--epi-amber-pale);
+border-left-color: var(--epi-gold);
+}
+body .formula-box {
+overflow-x: auto;
+color: var(--epi-navy);
+background: #f0f5f4;
+border-left-color: var(--epi-teal);
+text-align: center;
+-webkit-overflow-scrolling: touch;
+}
+.note > :last-child,
+.tip > :last-child,
+.warning > :last-child,
+.formula-box > :last-child,
+.well-note > :last-child,
+.well-caution > :last-child {
+margin-bottom: 0;
+}
+blockquote {
+max-width: 82ch;
+margin: 1.35rem 0;
+padding: 0.95rem 1.15rem;
+color: var(--epi-navy-soft);
+background: var(--epi-teal-pale);
+border-left: 5px solid var(--epi-teal);
+border-radius: 0 10px 10px 0;
+}
+blockquote > :last-child {
+margin-bottom: 0;
+}
+
+.table-responsive,
+.kable-table,
+.kable_wrapper,
+.kableExtra {
+display: block;
+width: 100%;
+max-width: 100%;
+margin: 1rem 0;
+overflow-x: auto;
+border-radius: 10px;
+-webkit-overflow-scrolling: touch;
+}
+.table-responsive {
+border: 1px solid var(--epi-line);
+}
+body table {
+display: block;
+width: 100%;
+max-width: 100%;
+margin: 1rem 0 1.35rem;
+overflow-x: auto;
+background: var(--epi-surface);
+border-collapse: collapse;
+-webkit-overflow-scrolling: touch;
+}
+body th {
+color: var(--epi-navy);
+background: var(--epi-teal-pale);
+}
+body th,
+body td {
+padding: 0.7rem 0.78rem !important;
+vertical-align: top !important;
+border-color: var(--epi-line) !important;
+}
+body caption {
+color: var(--epi-muted);
+font-weight: 650;
+text-align: left;
+}
+.figure,
+figure {
+max-width: 100%;
+margin: 1.5rem 0 2rem;
+}
+.figure img,
+figure img,
+.main-container img {
+display: block;
+max-width: 100%;
+height: auto;
+margin-inline: auto;
+border-radius: 8px;
+}
+p.caption,
+figcaption {
+color: var(--epi-muted);
+font-size: 14px;
+}
+.math.display,
+.MathJax_Display,
+math[display="block"] {
+max-width: 100%;
+overflow-x: auto;
+overflow-y: hidden;
+-webkit-overflow-scrolling: touch;
+}
+
+pre {
+max-width: 100%;
+max-height: 34rem;
+overflow: auto;
+border: 1px solid #d4e0e2;
+border-radius: 8px;
+-webkit-overflow-scrolling: touch;
+}
+code {
+color: #7c2633;
+}
+.code-folding-btn,
+button.dropdown-toggle {
+min-height: 34px;
+color: var(--epi-navy);
+background: #fff;
+border-color: #bfcfce;
+border-radius: 7px;
+font-weight: 650;
+}
+.code-folding-btn:hover,
+button.dropdown-toggle:hover,
+.code-folding-btn:focus,
+button.dropdown-toggle:focus {
+color: var(--epi-teal-dark);
+background: var(--epi-teal-pale);
+border-color: #8ebdb4;
+}
+.dropdown-menu {
+padding: 0.35rem;
+border-color: var(--epi-line);
+border-radius: 8px;
+box-shadow: 0 10px 24px rgba(22, 53, 75, 0.14);
+}
+.dropdown-menu > li > a {
+min-height: 38px;
+padding: 0.55rem 0.75rem;
+color: var(--epi-navy);
+border-radius: 5px;
+text-decoration: none;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+color: var(--epi-teal-dark);
+background: var(--epi-teal-pale);
+}
+html[lang^="zh"] .code-folding-btn,
+html[lang^="zh"] button.dropdown-toggle {
+position: relative;
+min-width: 76px;
+color: transparent !important;
+}
+html[lang^="zh"] .code-folding-btn::after,
+html[lang^="zh"] button.dropdown-toggle::after {
+position: absolute;
+inset: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--epi-navy);
+font-size: 12px;
+line-height: 1;
+}
+html[lang^="zh"] .code-folding-btn::after {
+content: "显示代码";
+}
+html[lang^="zh"] .code-folding-btn[aria-expanded="true"]::after {
+content: "隐藏代码";
+}
+html[lang^="zh"] button.dropdown-toggle::after {
+content: "代码 ▾";
+}
+
+#TOC.tocify,
+.tocify {
+max-height: calc(100vh - 3rem);
+overflow-x: hidden;
+overflow-y: auto;
+background: rgba(255, 255, 255, 0.97);
+border: 1px solid var(--epi-line);
+border-radius: 11px;
+box-shadow: 0 8px 22px rgba(22, 53, 75, 0.07);
+scrollbar-width: thin;
+scrollbar-color: #a9bfba transparent;
+}
+.tocify .list-group-item {
+color: var(--epi-navy-soft);
+border: 0;
+border-left: 3px solid transparent;
+}
+.tocify .list-group-item:hover,
+.tocify .list-group-item:focus {
+color: var(--epi-teal-dark);
+background: var(--epi-teal-pale);
+}
+.tocify .list-group-item.active,
+.tocify .list-group-item.active:hover,
+.tocify .list-group-item.active:focus {
+color: #fff;
+background: var(--epi-teal);
+border-left-color: var(--epi-navy);
+}
+.tocify-subheader .tocify-item {
+font-size: 0.93em;
+}
+.nav-tabs > li > a {
+text-decoration: none;
+}
+.footer-note {
+margin-top: 3.5rem;
+padding-top: 1.5rem;
+color: var(--epi-muted);
+border-top: 1px solid var(--epi-line);
+font-size: 13px;
+}
+@media (min-width: 768px) {
+.row > .col-sm-4.col-md-3 {
+position: sticky;
+top: 1.5rem;
+align-self: flex-start;
+}
+#TOC.tocify {
+top: 1.5rem !important;
+}
+}
+@media (max-width: 991px) and (min-width: 768px) {
+.main-container {
+padding-inline: 1rem;
+}
+#TOC.tocify,
+.tocify {
+font-size: 13px;
+}
+}
+@media (max-width: 767px) {
+html body {
+font-size: 16px;
+}
+.language-switch {
+justify-content: flex-start;
+margin-top: 0;
+}
+.language-switch .language-home {
+flex-basis: 100%;
+margin-right: 0;
+}
+.row > .col-xs-12.col-sm-4.col-md-3 {
+display: none;
+}
+.toc-content {
+float: none;
+width: 100% !important;
+}
+#header {
+padding: 1.5rem;
+border-radius: 13px;
+}
+#header h1 {
+font-size: clamp(1.85rem, 9vw, 2.5rem);
+}
+.main-container {
+padding-right: 15px;
+padding-left: 15px;
+}
+body h2 {
+margin-top: 2.5rem;
+}
+.btn-group.pull-right,
+.btn-group.float-right {
+margin-bottom: 0.75rem;
+}
+}
+@media (max-width: 420px) {
+.language-switch a,
+.language-switch span {
+flex: 1 1 auto;
+}
+.vlab-name {
+font-size: 0.82rem;
+}
+}
+@media (prefers-reduced-motion: reduce) {
+html {
+scroll-behavior: auto;
+}
+*,
+*::before,
+*::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+scroll-behavior: auto !important;
+transition-duration: 0.01ms !important;
+}
+}
+@media (forced-colors: active) {
+.vlab-mark,
+#header,
+.language-switch .language-option.active,
+.tocify .list-group-item.active {
+border: 1px solid CanvasText;
+}
+}
+@media print {
+@page {
+margin: 1.5cm;
+}
+html body {
+color: #111;
+background: #fff;
+font-size: 10.5pt;
+}
+.main-container {
+max-width: none;
+padding: 0;
+}
+#header {
+color: var(--epi-ink);
+background: #fff;
+border: 2px solid var(--epi-navy);
+box-shadow: none;
+}
+#header::after {
+display: none;
+}
+#header h1,
+#header h3,
+#header h4,
+#header .author,
+#header .date {
+color: var(--epi-navy);
+}
+.vlab-brand {
+color: #111;
+}
+.vlab-mark {
+color: #fff;
+background: var(--epi-navy);
+box-shadow: none;
+}
+.language-switch,
+.row > .col-xs-12.col-sm-4.col-md-3,
+#TOC,
+.tocify-wrapper,
+.btn,
+.code-folding-btn,
+.dropdown-menu,
+.nav-tabs {
+display: none !important;
+}
+.toc-content {
+float: none !important;
+width: 100% !important;
+}
+.collapse,
+.r-code-collapse,
+.tab-content > .tab-pane {
+display: block !important;
+height: auto !important;
+visibility: visible !important;
+opacity: 1 !important;
+}
+pre {
+max-height: none;
+overflow: visible;
+white-space: pre-wrap;
+}
+a {
+color: #111 !important;
+text-decoration: underline;
+}
+pre,
+table,
+figure,
+blockquote,
+.note,
+.tip,
+.warning,
+.formula-box,
+.well-note,
+.well-caution {
+break-inside: avoid;
+}
+details > * {
+display: block !important;
+}
+}
+</style>
 
 
 
@@ -2930,6 +3607,10 @@ font-size: 0.95em;
 
 
 
+<a class="vlab-brand" href="index.html" aria-label="The V Lab Epidemiology Learning Hub home">
+  <span class="vlab-mark" aria-hidden="true">V</span>
+  <span class="vlab-name">The V Lab</span>
+</a>
 
 <div id="header">
 
@@ -2969,14 +3650,19 @@ margin: 1em 0;
 .small-text { font-size: 0.92em; color: #444; }
 table { width: 100%; }
 </style>
+<nav class="language-switch" aria-label="Guide navigation">
+<a class="language-home" href="index.html">← The V Lab Home</a> <span class="language-option active" aria-current="page">English</span>
+<a class="language-option" href="epidemiology_basics_zh.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<a class="language-option" href="https://github.com/LaboratoireV/Epidemiology_Study">GitHub</a>
+</nav>
 <blockquote>
 <p><strong>Scope.</strong> This tutorial is an educational introduction,
 not a substitute for a protocol, statistical analysis plan, ethics
 review, or consultation with a biostatistician/epidemiologist. Examples
 are simplified so that the central ideas remain visible.</p>
 </blockquote>
-<div id="how-to-use-this-tutorial" class="section level1">
-<h1>How to use this tutorial</h1>
+<div id="how-to-use-this-tutorial" class="section level1 hasAnchor">
+<h1 class="hasAnchor">How to use this tutorial<a href="#how-to-use-this-tutorial" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Epidemiology studies the distribution and determinants of
 health-related states or events in specified populations, and applies
 that knowledge to improve population health. It connects clinical
@@ -2994,8 +3680,8 @@ when developing a protocol or analysis plan.</li>
 <p>All examples use base R, the <code>stats</code> package, or datasets
 distributed with R. No internet connection or external data file is
 required after the HTML is rendered.</p>
-<div id="learning-objectives" class="section level2">
-<h2>Learning objectives</h2>
+<div id="learning-objectives" class="section level2 hasAnchor">
+<h2 class="hasAnchor">Learning objectives<a href="#learning-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>After working through the tutorial, you should be able to:</p>
 <ul>
 <li>distinguish prevalence, cumulative incidence (risk), and incidence
@@ -3016,10 +3702,10 @@ answerable questions.</li>
 </ul>
 </div>
 </div>
-<div id="the-epidemiologic-way-of-thinking" class="section level1">
-<h1>1. The epidemiologic way of thinking</h1>
-<div id="person-place-and-time" class="section level2">
-<h2>1.1 Person, place, and time</h2>
+<div id="the-epidemiologic-way-of-thinking" class="section level1 hasAnchor">
+<h1 class="hasAnchor">1. The epidemiologic way of thinking<a href="#the-epidemiologic-way-of-thinking" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="person-place-and-time" class="section level2 hasAnchor">
+<h2 class="hasAnchor">1.1 Person, place, and time<a href="#person-place-and-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Descriptive epidemiology begins by asking:</p>
 <ul>
 <li><strong>Person:</strong> Who is affected? Consider age, sex/gender,
@@ -3036,8 +3722,8 @@ following an intervention.</li>
 reveal data quality problems, generate hypotheses, and guide urgent
 action.</p>
 </div>
-<div id="population-sample-and-unit-of-analysis" class="section level2">
-<h2>1.2 Population, sample, and unit of analysis</h2>
+<div id="population-sample-and-unit-of-analysis" class="section level2 hasAnchor">
+<h2 class="hasAnchor">1.2 Population, sample, and unit of analysis<a href="#population-sample-and-unit-of-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <strong>target population</strong> is the population to which the
 investigators want the answer to apply. The <strong>source
 population</strong> gives rise to the observed participants. The
@@ -3049,8 +3735,9 @@ school, community, or person-time interval. Always state the unit.
 Treating repeated events from one person as if they were independent
 people can make uncertainty appear too small.</p>
 </div>
-<div id="exposure-outcome-covariate-and-intervention" class="section level2">
-<h2>1.3 Exposure, outcome, covariate, and intervention</h2>
+<div id="exposure-outcome-covariate-and-intervention" class="section level2 hasAnchor">
+<h2 class="hasAnchor">1.3 Exposure, outcome, covariate, and
+intervention<a href="#exposure-outcome-covariate-and-intervention" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>An <strong>exposure</strong> may be a behavior, treatment,
 infection, policy, environmental condition, or social determinant.</li>
@@ -3067,8 +3754,9 @@ Blood pressure could be an exposure, an outcome, a mediator, or a
 confounder. Its role comes from the scientific question and causal
 structure, not from its column name.</p>
 </div>
-<div id="descriptive-predictive-and-causal-questions" class="section level2">
-<h2>1.4 Descriptive, predictive, and causal questions</h2>
+<div id="descriptive-predictive-and-causal-questions" class="section level2 hasAnchor">
+<h2 class="hasAnchor">1.4 Descriptive, predictive, and causal
+questions<a href="#descriptive-predictive-and-causal-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>These goals require different interpretations:</p>
 <table>
 <colgroup>
@@ -3107,10 +3795,10 @@ causal effect, and a causal model need not predict each individual’s
 outcome well.</p>
 </div>
 </div>
-<div id="measuring-disease-and-health-events" class="section level1">
-<h1>2. Measuring disease and health events</h1>
-<div id="counts-proportions-ratios-and-rates" class="section level2">
-<h2>2.1 Counts, proportions, ratios, and rates</h2>
+<div id="measuring-disease-and-health-events" class="section level1 hasAnchor">
+<h1 class="hasAnchor">2. Measuring disease and health events<a href="#measuring-disease-and-health-events" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="counts-proportions-ratios-and-rates" class="section level2 hasAnchor">
+<h2 class="hasAnchor">2.1 Counts, proportions, ratios, and rates<a href="#counts-proportions-ratios-and-rates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>A <strong>count</strong> is a number of events (for example, 72
 cases).</li>
@@ -3126,8 +3814,8 @@ place, and time period. “The rate was 12%” is usually imprecise
 language: 12% is a proportion unless time is explicitly part of the
 denominator.</p>
 </div>
-<div id="prevalence" class="section level2">
-<h2>2.2 Prevalence</h2>
+<div id="prevalence" class="section level2 hasAnchor">
+<h2 class="hasAnchor">2.2 Prevalence<a href="#prevalence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Point prevalence</strong> is the proportion of a population
 with a condition at a specified time:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Prevalence</mtext><mo>=</mo><mfrac><mrow><mrow><mtext mathvariant="normal">existing cases at time </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi></mrow><mrow><mrow><mtext mathvariant="normal">population at time </mtext><mspace width="0.333em"></mspace></mrow><mi>t</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
@@ -3138,8 +3826,8 @@ Prevalence depends on both incidence and duration. It may rise because
 more new cases occur, survival improves, recovery slows, or case
 ascertainment improves.</p>
 </div>
-<div id="cumulative-incidence-risk" class="section level2">
-<h2>2.3 Cumulative incidence (risk)</h2>
+<div id="cumulative-incidence-risk" class="section level2 hasAnchor">
+<h2 class="hasAnchor">2.3 Cumulative incidence (risk)<a href="#cumulative-incidence-risk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Risk is the proportion of initially outcome-free people who develop
 the outcome during a stated interval:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Risk</mtext><mo>=</mo><mfrac><mtext mathvariant="normal">new cases during the interval</mtext><mtext mathvariant="normal">people at risk at the start</mtext></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
@@ -3151,8 +3839,8 @@ the outcome during a stated interval:</p>
 follow-up. With censoring and unequal follow-up, survival-analysis
 methods are generally needed.</p>
 </div>
-<div id="incidence-rate-incidence-density" class="section level2">
-<h2>2.4 Incidence rate (incidence density)</h2>
+<div id="incidence-rate-incidence-density" class="section level2 hasAnchor">
+<h2 class="hasAnchor">2.4 Incidence rate (incidence density)<a href="#incidence-rate-incidence-density" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The incidence rate uses person-time at risk:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Incidence rate</mtext><mo>=</mo><mfrac><mtext mathvariant="normal">new events</mtext><mtext mathvariant="normal">total person-time at risk</mtext></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 \text{Incidence rate} = \frac{\text{new events}}
@@ -3187,8 +3875,8 @@ exceed 1 per chosen unit of time.</p>
 <li>Events occurred at 20.5 per 1,000 person-years.</li>
 </ul>
 </div>
-<div id="mortality-case-fatality-and-survival" class="section level2">
-<h2>2.5 Mortality, case fatality, and survival</h2>
+<div id="mortality-case-fatality-and-survival" class="section level2 hasAnchor">
+<h2 class="hasAnchor">2.5 Mortality, case fatality, and survival<a href="#mortality-case-fatality-and-survival" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>Mortality risk/rate:</strong> deaths in the population
 denominator.</li>
@@ -3202,8 +3890,8 @@ specified time among diagnosed people or a defined cohort.</li>
 <p>Case fatality describes severity among cases; mortality also depends
 on how often the disease occurs in the population.</p>
 </div>
-<div id="crude-specific-and-standardized-measures" class="section level2">
-<h2>2.6 Crude, specific, and standardized measures</h2>
+<div id="crude-specific-and-standardized-measures" class="section level2 hasAnchor">
+<h2 class="hasAnchor">2.6 Crude, specific, and standardized measures<a href="#crude-specific-and-standardized-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A <strong>crude</strong> measure combines the entire population. A
 <strong>stratum-specific</strong> measure is calculated within a
 category such as age group. Standardization creates a weighted summary
@@ -3246,10 +3934,10 @@ observed rate in either population. Always report the standard
 population and method.</p>
 </div>
 </div>
-<div id="measures-of-association-and-impact" class="section level1">
-<h1>3. Measures of association and impact</h1>
-<div id="the-2-x-2-table" class="section level2">
-<h2>3.1 The 2 x 2 table</h2>
+<div id="measures-of-association-and-impact" class="section level1 hasAnchor">
+<h1 class="hasAnchor">3. Measures of association and impact<a href="#measures-of-association-and-impact" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-2-x-2-table" class="section level2 hasAnchor">
+<h2 class="hasAnchor">3.1 The 2 x 2 table<a href="#the-2-x-2-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For a binary exposure and outcome:</p>
 <table>
 <thead>
@@ -3346,8 +4034,8 @@ mathematically defined. With zero cells, log-Wald intervals for RR or OR
 are returned as <code>NA</code>; exact, penalized, or other
 purpose-specific methods may be preferable in real small samples.</p>
 </div>
-<div id="relative-measures" class="section level2">
-<h2>3.2 Relative measures</h2>
+<div id="relative-measures" class="section level2 hasAnchor">
+<h2 class="hasAnchor">3.2 Relative measures<a href="#relative-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <strong>risk ratio (RR)</strong> compares risks:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>R</mi><mo>=</mo><mfrac><mtext mathvariant="normal">risk in exposed</mtext><mtext mathvariant="normal">risk in unexposed</mtext></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
 RR = \frac{\text{risk in exposed}}{\text{risk in unexposed}}.
@@ -3368,8 +4056,8 @@ the outcome is rare under suitable sampling. When the outcome is common,
 an OR can be much farther from 1 than the RR and should not be described
 as “times the risk.”</p>
 </div>
-<div id="absolute-measures" class="section level2">
-<h2>3.3 Absolute measures</h2>
+<div id="absolute-measures" class="section level2 hasAnchor">
+<h2 class="hasAnchor">3.3 Absolute measures<a href="#absolute-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <strong>risk difference (RD)</strong> is:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>D</mi><mo>=</mo><msub><mtext mathvariant="normal">risk</mtext><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mi>o</mi><mi>s</mi><mi>e</mi><mi>d</mi></mrow></msub><mo>−</mo><msub><mtext mathvariant="normal">risk</mtext><mrow><mi>u</mi><mi>n</mi><mi>e</mi><mi>x</mi><mi>p</mi><mi>o</mi><mi>s</mi><mi>e</mi><mi>d</mi></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
 RD = \text{risk}_{exposed} - \text{risk}_{unexposed}.
@@ -3397,8 +4085,8 @@ calculation.</p>
 corresponding to an NNH of 25 if the association were truly causal and
 transportable.</p>
 </div>
-<div id="confidence-intervals-and-p-values" class="section level2">
-<h2>3.4 Confidence intervals and p-values</h2>
+<div id="confidence-intervals-and-p-values" class="section level2 hasAnchor">
+<h2 class="hasAnchor">3.4 Confidence intervals and p-values<a href="#confidence-intervals-and-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A confidence interval describes the range generated by a procedure
 that would cover the true parameter at the stated frequency under
 repeated compatible sampling and model assumptions. It is not the
@@ -3411,18 +4099,18 @@ importance, study quality, or absence of bias.</p>
 assumptions. Avoid turning continuous evidence into a binary conclusion
 at <code>p = 0.05</code>.</p>
 </div>
-<div id="association-is-scale-dependent" class="section level2">
-<h2>3.5 Association is scale-dependent</h2>
+<div id="association-is-scale-dependent" class="section level2 hasAnchor">
+<h2 class="hasAnchor">3.5 Association is scale-dependent<a href="#association-is-scale-dependent" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Effect modification can be present on one scale but not another. For
 example, a treatment may reduce risk by 10 percentage points in two
 subgroups (constant RD) while the subgroup RRs differ because their
 baseline risks differ. State the scale before claiming interaction.</p>
 </div>
 </div>
-<div id="study-designs" class="section level1">
-<h1>4. Study designs</h1>
-<div id="overview" class="section level2">
-<h2>4.1 Overview</h2>
+<div id="study-designs" class="section level1 hasAnchor">
+<h1 class="hasAnchor">4. Study designs<a href="#study-designs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview" class="section level2 hasAnchor">
+<h2 class="hasAnchor">4.1 Overview<a href="#overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <table>
 <colgroup>
 <col width="20%" />
@@ -3493,16 +4181,16 @@ baseline risks differ. State the scale before claiming interaction.</p>
 </tbody>
 </table>
 </div>
-<div id="cross-sectional-studies" class="section level2">
-<h2>4.2 Cross-sectional studies</h2>
+<div id="cross-sectional-studies" class="section level2 hasAnchor">
+<h2 class="hasAnchor">4.2 Cross-sectional studies<a href="#cross-sectional-studies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Cross-sectional studies are well suited to estimating burden and
 describing service needs. Because exposure and outcome are often
 measured together, it may be unclear whether the exposure preceded the
 outcome. Prevalence can also preferentially include long-duration
 survivors (<strong>prevalence-incidence bias</strong>).</p>
 </div>
-<div id="case-control-studies" class="section level2">
-<h2>4.3 Case-control studies</h2>
+<div id="case-control-studies" class="section level2 hasAnchor">
+<h2 class="hasAnchor">4.3 Case-control studies<a href="#case-control-studies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Investigators sample cases with the outcome and controls representing
 the exposure distribution in the population that produced those cases.
 Validity depends less on a fixed case-to-control ratio than on correct
@@ -3521,8 +4209,8 @@ rate ratio.</li>
 matched factors must be handled appropriately in analysis. Matching does
 not by itself eliminate confounding.</p>
 </div>
-<div id="cohort-studies" class="section level2">
-<h2>4.4 Cohort studies</h2>
+<div id="cohort-studies" class="section level2 hasAnchor">
+<h2 class="hasAnchor">4.4 Cohort studies<a href="#cohort-studies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Prospective cohorts follow participants forward from measurement.
 Retrospective cohorts reconstruct exposure and follow-up from existing
 records. Both require a clear time zero, eligibility rule, exposure
@@ -3532,8 +4220,8 @@ during which a participant must remain event-free to become classified
 as exposed is incorrectly counted as exposed time. Align eligibility,
 treatment assignment, and start of follow-up.</p>
 </div>
-<div id="randomized-trials" class="section level2">
-<h2>4.5 Randomized trials</h2>
+<div id="randomized-trials" class="section level2 hasAnchor">
+<h2 class="hasAnchor">4.5 Randomized trials<a href="#randomized-trials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Randomization supports exchangeability in expectation, allocation
 concealment protects the assignment process, and blinding may reduce
 differential behavior or measurement.</p>
@@ -3547,8 +4235,8 @@ selection/confounding.</li>
 <p>Report harms as well as benefits, participant flow, missing outcomes,
 protocol changes, and prespecified versus exploratory analyses.</p>
 </div>
-<div id="quasi-experimental-designs" class="section level2">
-<h2>4.6 Quasi-experimental designs</h2>
+<div id="quasi-experimental-designs" class="section level2 hasAnchor">
+<h2 class="hasAnchor">4.6 Quasi-experimental designs<a href="#quasi-experimental-designs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Interrupted time series, difference-in-differences, regression
 discontinuity, and instrumental-variable designs can answer questions
 when randomization is unavailable. Each substitutes a specific
@@ -3557,8 +4245,8 @@ difference-in-differences or continuity around a threshold for
 regression discontinuity. These assumptions should be explained and
 probed, not hidden behind a model name.</p>
 </div>
-<div id="choosing-a-design" class="section level2">
-<h2>4.7 Choosing a design</h2>
+<div id="choosing-a-design" class="section level2 hasAnchor">
+<h2 class="hasAnchor">4.7 Choosing a design<a href="#choosing-a-design" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ask in order:</p>
 <ol style="list-style-type: decimal">
 <li>What is the exact estimand or descriptive target?</li>
@@ -3573,17 +4261,17 @@ size?</li>
 </ol>
 </div>
 </div>
-<div id="bias-random-error-and-measurement" class="section level1">
-<h1>5. Bias, random error, and measurement</h1>
-<div id="random-error-versus-systematic-error" class="section level2">
-<h2>5.1 Random error versus systematic error</h2>
+<div id="bias-random-error-and-measurement" class="section level1 hasAnchor">
+<h1 class="hasAnchor">5. Bias, random error, and measurement<a href="#bias-random-error-and-measurement" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="random-error-versus-systematic-error" class="section level2 hasAnchor">
+<h2 class="hasAnchor">5.1 Random error versus systematic error<a href="#random-error-versus-systematic-error" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Random error creates imprecision and generally decreases with more
 information. Systematic error (bias) shifts estimates because of study
 design, conduct, measurement, or analysis. A very large biased study can
 produce a very precise wrong answer.</p>
 </div>
-<div id="selection-bias" class="section level2">
-<h2>5.2 Selection bias</h2>
+<div id="selection-bias" class="section level2 hasAnchor">
+<h2 class="hasAnchor">5.2 Selection bias<a href="#selection-bias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Selection bias occurs when inclusion, participation, retention, or
 analysis depends on variables in a way that distorts the target
 comparison. Examples include:</p>
@@ -3601,8 +4289,8 @@ recruitment, and active follow-up. Analysis may use standardization,
 inverse-probability weighting, or sensitivity analysis, but only with
 defensible measured predictors of selection.</p>
 </div>
-<div id="information-bias-and-misclassification" class="section level2">
-<h2>5.3 Information bias and misclassification</h2>
+<div id="information-bias-and-misclassification" class="section level2 hasAnchor">
+<h2 class="hasAnchor">5.3 Information bias and misclassification<a href="#information-bias-and-misclassification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Information bias arises from inaccurate measurement. Examples include
 recall bias, interviewer bias, diagnostic suspicion, imperfect coding,
 and instrument drift.</p>
@@ -3621,8 +4309,8 @@ for multicategory variables, dependent errors, or complex analyses.</p>
 training, calibration, blinded outcome assessment where feasible,
 repeated measurements, and adjudication.</p>
 </div>
-<div id="confounding" class="section level2">
-<h2>5.4 Confounding</h2>
+<div id="confounding" class="section level2 hasAnchor">
+<h2 class="hasAnchor">5.4 Confounding<a href="#confounding" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Confounding mixes the exposure effect with differences in causes of
 the outcome between exposure groups. A classical confounder:</p>
 <ol style="list-style-type: decimal">
@@ -3639,8 +4327,9 @@ Analysis approaches include stratification, standardization, regression
 adjustment, matching/weighting by a propensity score, and
 inverse-probability weighting.</p>
 </div>
-<div id="stratification-and-the-mantel-haenszel-odds-ratio" class="section level2">
-<h2>5.5 Stratification and the Mantel-Haenszel odds ratio</h2>
+<div id="stratification-and-the-mantel-haenszel-odds-ratio" class="section level2 hasAnchor">
+<h2 class="hasAnchor">5.5 Stratification and the Mantel-Haenszel odds
+ratio<a href="#stratification-and-the-mantel-haenszel-odds-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Suppose age is a potential confounder. Compare exposure and outcome
 within age strata before producing a summary.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Each 2 x 2 table uses rows = exposed/unexposed and columns = case/non-case.</span></span>
@@ -3675,8 +4364,8 @@ only when stratum-specific effects are sufficiently compatible for the
 scientific purpose; otherwise, report the variation rather than hiding
 it.</p>
 </div>
-<div id="effect-modification-interaction" class="section level2">
-<h2>5.6 Effect modification (interaction)</h2>
+<div id="effect-modification-interaction" class="section level2 hasAnchor">
+<h2 class="hasAnchor">5.6 Effect modification (interaction)<a href="#effect-modification-interaction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Effect modification means the effect differs across levels of another
 variable. It is not a nuisance to “control away”; it can be the central
 finding. Prespecify scientifically important modifiers, report
@@ -3685,8 +4374,8 @@ differences merely because one subgroup has <code>p &lt; 0.05</code> and
 another does not. Test or estimate the <strong>difference between
 effects</strong>.</p>
 </div>
-<div id="other-recurring-biases" class="section level2">
-<h2>5.7 Other recurring biases</h2>
+<div id="other-recurring-biases" class="section level2 hasAnchor">
+<h2 class="hasAnchor">5.7 Other recurring biases<a href="#other-recurring-biases" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>Length bias:</strong> screening more often finds slowly
 progressing disease.</li>
@@ -3705,10 +4394,10 @@ to be less extreme when repeated, even without treatment.</li>
 </ul>
 </div>
 </div>
-<div id="causal-thinking" class="section level1">
-<h1>6. Causal thinking</h1>
-<div id="potential-outcomes-and-causal-contrasts" class="section level2">
-<h2>6.1 Potential outcomes and causal contrasts</h2>
+<div id="causal-thinking" class="section level1 hasAnchor">
+<h1 class="hasAnchor">6. Causal thinking<a href="#causal-thinking" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="potential-outcomes-and-causal-contrasts" class="section level2 hasAnchor">
+<h2 class="hasAnchor">6.1 Potential outcomes and causal contrasts<a href="#potential-outcomes-and-causal-contrasts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For one person, imagine the outcome under exposure and the outcome
 under no exposure. Their difference is an individual causal effect, but
 only one can be observed. Studies therefore compare groups and need a
@@ -3732,8 +4421,8 @@ outcome.</li>
 <p>These are scientific assumptions, not properties that software can
 verify completely.</p>
 </div>
-<div id="directed-acyclic-graphs-dags" class="section level2">
-<h2>6.2 Directed acyclic graphs (DAGs)</h2>
+<div id="directed-acyclic-graphs-dags" class="section level2 hasAnchor">
+<h2 class="hasAnchor">6.2 Directed acyclic graphs (DAGs)<a href="#directed-acyclic-graphs-dags" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A DAG encodes assumed causal relationships:</p>
 <pre><code>Confounder C  ---&gt; Exposure E
 Confounder C  ---&gt; Outcome Y
@@ -3747,8 +4436,8 @@ block backdoor paths. Do not routinely adjust for mediators or
 colliders. A DAG cannot tell you whether an omitted arrow is truly
 absent; its value is making assumptions explicit and debatable.</p>
 </div>
-<div id="the-target-trial-framework" class="section level2">
-<h2>6.3 The target-trial framework</h2>
+<div id="the-target-trial-framework" class="section level2 hasAnchor">
+<h2 class="hasAnchor">6.3 The target-trial framework<a href="#the-target-trial-framework" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Even for observational data, specify the hypothetical trial:</p>
 <table>
 <colgroup>
@@ -3797,8 +4486,8 @@ controlled?</td>
 define baseline exposure or giving one group guaranteed event-free
 time.</p>
 </div>
-<div id="mediation-and-competing-events" class="section level2">
-<h2>6.4 Mediation and competing events</h2>
+<div id="mediation-and-competing-events" class="section level2 hasAnchor">
+<h2 class="hasAnchor">6.4 Mediation and competing events<a href="#mediation-and-competing-events" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mediation asks how much of an effect operates through a specified
 pathway. Direct and indirect effects require assumptions beyond
 total-effect estimation, including control of mediator-outcome
@@ -3812,10 +4501,10 @@ competing events as ordinary independent censoring is often
 misleading.</p>
 </div>
 </div>
-<div id="screening-and-diagnostic-accuracy" class="section level1">
-<h1>7. Screening and diagnostic accuracy</h1>
-<div id="core-measures" class="section level2">
-<h2>7.1 Core measures</h2>
+<div id="screening-and-diagnostic-accuracy" class="section level1 hasAnchor">
+<h1 class="hasAnchor">7. Screening and diagnostic accuracy<a href="#screening-and-diagnostic-accuracy" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="core-measures" class="section level2 hasAnchor">
+<h2 class="hasAnchor">7.1 Core measures<a href="#core-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Against a reference standard:</p>
 <table>
 <thead>
@@ -3869,8 +4558,8 @@ misleading.</p>
 <pre><code>## sensitivity specificity         PPV         NPV LR_positive LR_negative    accuracy 
 ##      0.8500      0.9000      0.4857      0.9818      8.5000      0.1667      0.8950</code></pre>
 </div>
-<div id="predictive-values-depend-on-prevalence" class="section level2">
-<h2>7.2 Predictive values depend on prevalence</h2>
+<div id="predictive-values-depend-on-prevalence" class="section level2 hasAnchor">
+<h2 class="hasAnchor">7.2 Predictive values depend on prevalence<a href="#predictive-values-depend-on-prevalence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For fixed sensitivity and specificity, PPV increases as pretest
 probability/prevalence increases, while NPV generally decreases.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>sens <span class="ot">&lt;-</span> <span class="fl">0.90</span></span>
@@ -3892,8 +4581,8 @@ probability/prevalence increases, while NPV generally decreases.</p>
 <p>This is why a test that performs well in a specialty clinic can yield
 many false positives in low-risk population screening.</p>
 </div>
-<div id="thresholds-roc-curves-and-utility" class="section level2">
-<h2>7.3 Thresholds, ROC curves, and utility</h2>
+<div id="thresholds-roc-curves-and-utility" class="section level2 hasAnchor">
+<h2 class="hasAnchor">7.3 Thresholds, ROC curves, and utility<a href="#thresholds-roc-curves-and-utility" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Lowering a continuous test threshold usually increases sensitivity
 and decreases specificity. A receiver operating characteristic (ROC)
 curve shows sensitivity versus 1-specificity across thresholds. The area
@@ -3905,8 +4594,8 @@ preferences. A screening program should also have an important
 detectable condition, an acceptable test, effective early management, a
 pathway for follow-up, and evidence that benefits exceed harms.</p>
 </div>
-<div id="spectrum-and-verification-bias" class="section level2">
-<h2>7.4 Spectrum and verification bias</h2>
+<div id="spectrum-and-verification-bias" class="section level2 hasAnchor">
+<h2 class="hasAnchor">7.4 Spectrum and verification bias<a href="#spectrum-and-verification-bias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Accuracy can vary with disease severity, comorbidity, age, and
 setting (<strong>spectrum effects</strong>). If only test-positive
 people receive the reference standard, verification bias can inflate
@@ -3914,8 +4603,8 @@ apparent accuracy. Evaluate tests in the intended-use population and
 report indeterminate results rather than silently excluding them.</p>
 </div>
 </div>
-<div id="outbreak-investigation" class="section level1">
-<h1>8. Outbreak investigation</h1>
+<div id="outbreak-investigation" class="section level1 hasAnchor">
+<h1 class="hasAnchor">8. Outbreak investigation<a href="#outbreak-investigation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Outbreak investigation combines rapid action with disciplined
 inference. Steps may overlap:</p>
 <ol style="list-style-type: decimal">
@@ -3937,8 +4626,8 @@ for the final analysis.</li>
 <li>Communicate findings, uncertainty, recommendations, and follow-up
 plans.</li>
 </ol>
-<div id="epidemic-curves" class="section level2">
-<h2>8.1 Epidemic curves</h2>
+<div id="epidemic-curves" class="section level2 hasAnchor">
+<h2 class="hasAnchor">8.1 Epidemic curves<a href="#epidemic-curves" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>A narrow peak within one incubation period suggests a <strong>point
 source</strong>.</li>
@@ -3950,8 +4639,8 @@ source</strong>.</li>
 <p>Reporting delays and active case finding also shape the curve, so
 pattern recognition must be combined with contextual evidence.</p>
 </div>
-<div id="attack-rates-and-a-food-specific-example" class="section level2">
-<h2>8.2 Attack rates and a food-specific example</h2>
+<div id="attack-rates-and-a-food-specific-example" class="section level2 hasAnchor">
+<h2 class="hasAnchor">8.2 Attack rates and a food-specific example<a href="#attack-rates-and-a-food-specific-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An attack rate is a cumulative incidence proportion over an outbreak
 period.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># 80 of 200 people who ate a food became ill; 20 of 200 non-eaters became ill.</span></span>
@@ -3979,8 +4668,8 @@ histories, incubation periods, dose, other menu items, food handling,
 laboratory findings, and selection into the event still matter for
 causal interpretation.</p>
 </div>
-<div id="reproduction-number-and-epidemic-growth" class="section level2">
-<h2>8.3 Reproduction number and epidemic growth</h2>
+<div id="reproduction-number-and-epidemic-growth" class="section level2 hasAnchor">
+<h2 class="hasAnchor">8.3 Reproduction number and epidemic growth<a href="#reproduction-number-and-epidemic-growth" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The basic reproduction number, <code>R0</code>, is the expected
 number of secondary infections from a typical infectious person in a
 wholly susceptible population under specified conditions. The effective
@@ -3990,10 +4679,11 @@ inferred from data using a generation/serial interval distribution and
 is not an immutable pathogen constant.</p>
 </div>
 </div>
-<div id="from-an-idea-to-an-answerable-research-question" class="section level1">
-<h1>9. From an idea to an answerable research question</h1>
-<div id="pecopico" class="section level2">
-<h2>9.1 PECO/PICO</h2>
+<div id="from-an-idea-to-an-answerable-research-question" class="section level1 hasAnchor">
+<h1 class="hasAnchor">9. From an idea to an answerable research
+question<a href="#from-an-idea-to-an-answerable-research-question" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="pecopico" class="section level2 hasAnchor">
+<h2 class="hasAnchor">9.1 PECO/PICO<a href="#pecopico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Structure an etiologic question with <strong>P</strong>opulation,
 <strong>E</strong>xposure (or Intervention),
 <strong>C</strong>omparator, <strong>O</strong>utcome, and a time
@@ -4014,8 +4704,8 @@ exposure window, and outcome window. It still needs a causal estimand,
 exposure model, confounder plan, seasonality control, and strategy for
 repeated daily observations.</p>
 </div>
-<div id="common-estimands" class="section level2">
-<h2>9.2 Common estimands</h2>
+<div id="common-estimands" class="section level2 hasAnchor">
+<h2 class="hasAnchor">9.2 Common estimands<a href="#common-estimands" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An estimand precisely describes what is being estimated. Examples
 include:</p>
 <ul>
@@ -4032,8 +4722,8 @@ a justified design;</li>
 <p>Specify population, treatment/exposure strategies, outcome, time
 horizon, summary measure, and handling of intercurrent events.</p>
 </div>
-<div id="protocol-essentials" class="section level2">
-<h2>9.3 Protocol essentials</h2>
+<div id="protocol-essentials" class="section level2 hasAnchor">
+<h2 class="hasAnchor">9.3 Protocol essentials<a href="#protocol-essentials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A protocol should prespecify:</p>
 <ul>
 <li>rationale, objectives, and hypotheses;</li>
@@ -4051,10 +4741,11 @@ events;</li>
 </ul>
 </div>
 </div>
-<div id="common-epidemiologic-research-areas-and-questions" class="section level1">
-<h1>10. Common epidemiologic research areas and questions</h1>
-<div id="infectious-disease-epidemiology" class="section level2">
-<h2>10.1 Infectious disease epidemiology</h2>
+<div id="common-epidemiologic-research-areas-and-questions" class="section level1 hasAnchor">
+<h1 class="hasAnchor">10. Common epidemiologic research areas and
+questions<a href="#common-epidemiologic-research-areas-and-questions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="infectious-disease-epidemiology" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.1 Infectious disease epidemiology<a href="#infectious-disease-epidemiology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Common questions concern transmission, reservoirs, incubation,
 vaccine effectiveness, variant dynamics, antimicrobial resistance,
 contact networks, and control strategies.</p>
@@ -4070,8 +4761,8 @@ respiratory illness?</li>
 immunity, test-seeking, under-ascertainment, and rapidly changing
 interventions.</p>
 </div>
-<div id="chronic-disease-epidemiology" class="section level2">
-<h2>10.2 Chronic disease epidemiology</h2>
+<div id="chronic-disease-epidemiology" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.2 Chronic disease epidemiology<a href="#chronic-disease-epidemiology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Research spans cardiovascular disease, cancer, diabetes, respiratory
 disease, mental health, and multimorbidity. Long latency, changing
 exposure, survival, competing risks, and repeated measures are
@@ -4086,8 +4777,8 @@ factors?</li>
 groups?</li>
 </ul>
 </div>
-<div id="environmental-and-occupational-epidemiology" class="section level2">
-<h2>10.3 Environmental and occupational epidemiology</h2>
+<div id="environmental-and-occupational-epidemiology" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.3 Environmental and occupational epidemiology<a href="#environmental-and-occupational-epidemiology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Topics include air pollution, heat, water contamination, noise,
 chemicals, radiation, physical workload, shift work, and workplace
 injury. Exposure assignment, mixtures, spatial correlation, time trends,
@@ -4101,8 +4792,8 @@ categories?</li>
 <li>Did a heat-warning system reduce heat-related mortality?</li>
 </ul>
 </div>
-<div id="social-epidemiology-and-health-equity" class="section level2">
-<h2>10.4 Social epidemiology and health equity</h2>
+<div id="social-epidemiology-and-health-equity" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.4 Social epidemiology and health equity<a href="#social-epidemiology-and-health-equity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Social epidemiology examines how power, policy, material conditions,
 discrimination, housing, education, income, and social networks shape
 health. Categories such as race and ethnicity should be conceptualized
@@ -4113,8 +4804,9 @@ are missing, whether measurement works similarly across groups, and
 whether interventions change absolute as well as relative
 disparities.</p>
 </div>
-<div id="pharmacoepidemiology-and-comparative-effectiveness" class="section level2">
-<h2>10.5 Pharmacoepidemiology and comparative effectiveness</h2>
+<div id="pharmacoepidemiology-and-comparative-effectiveness" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.5 Pharmacoepidemiology and comparative
+effectiveness<a href="#pharmacoepidemiology-and-comparative-effectiveness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Common questions address real-world benefits and harms of medications
 and devices. Recurring challenges include confounding by indication,
 contraindication, new-user versus prevalent-user design, adherence,
@@ -4124,24 +4816,25 @@ time.</p>
 comparability by contrasting people initiating therapies used for the
 same indication and aligning time zero at initiation.</p>
 </div>
-<div id="maternal-child-aging-and-life-course-epidemiology" class="section level2">
-<h2>10.6 Maternal, child, aging, and life-course epidemiology</h2>
+<div id="maternal-child-aging-and-life-course-epidemiology" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.6 Maternal, child, aging, and life-course
+epidemiology<a href="#maternal-child-aging-and-life-course-epidemiology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>These fields deal with changing susceptibility, developmental
 windows, familial clustering, fertility selection, pregnancy as a
 time-varying process, and survival into older ages. Specify whether
 inference concerns pregnancies, births, parents, children, or families,
 and handle repeated pregnancies or siblings appropriately.</p>
 </div>
-<div id="injury-and-violence-epidemiology" class="section level2">
-<h2>10.7 Injury and violence epidemiology</h2>
+<div id="injury-and-violence-epidemiology" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.7 Injury and violence epidemiology<a href="#injury-and-violence-epidemiology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Research may examine road design, protective equipment, substance
 use, firearm policy, falls, or workplace systems. Exposure opportunity
 is central: counts of crashes, for example, should be interpreted
 relative to travel distance, trips, time, or another appropriate
 denominator.</p>
 </div>
-<div id="genetic-and-molecular-epidemiology" class="section level2">
-<h2>10.8 Genetic and molecular epidemiology</h2>
+<div id="genetic-and-molecular-epidemiology" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.8 Genetic and molecular epidemiology<a href="#genetic-and-molecular-epidemiology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Topics include heritability, genome-wide association,
 gene-environment interplay, biomarkers, and Mendelian randomization.
 Population structure, selection, multiple testing, weak instruments,
@@ -4149,8 +4842,8 @@ pleiotropy, tissue specificity, and measurement timing need careful
 attention. Genetic association does not imply deterministic individual
 fate.</p>
 </div>
-<div id="surveillance-and-implementation-research" class="section level2">
-<h2>10.9 Surveillance and implementation research</h2>
+<div id="surveillance-and-implementation-research" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.9 Surveillance and implementation research<a href="#surveillance-and-implementation-research" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Surveillance continuously and systematically collects, analyzes,
 interprets, and shares data for action. Evaluate timeliness,
 sensitivity, representativeness, stability, simplicity, acceptability,
@@ -4159,8 +4852,8 @@ data quality, and positive predictive value.</p>
 work, but how reach, adoption, fidelity, adaptation, cost, and context
 influence real-world impact.</p>
 </div>
-<div id="example-research-question-matrix" class="section level2">
-<h2>10.10 Example research-question matrix</h2>
+<div id="example-research-question-matrix" class="section level2 hasAnchor">
+<h2 class="hasAnchor">10.10 Example research-question matrix<a href="#example-research-question-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <table>
 <colgroup>
 <col width="25%" />
@@ -4217,10 +4910,10 @@ influence real-world impact.</p>
 </table>
 </div>
 </div>
-<div id="a-reproducible-analysis-workflow-in-r" class="section level1">
-<h1>11. A reproducible analysis workflow in R</h1>
-<div id="preserve-raw-data-and-metadata" class="section level2">
-<h2>11.1 Preserve raw data and metadata</h2>
+<div id="a-reproducible-analysis-workflow-in-r" class="section level1 hasAnchor">
+<h1 class="hasAnchor">11. A reproducible analysis workflow in R<a href="#a-reproducible-analysis-workflow-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="preserve-raw-data-and-metadata" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.1 Preserve raw data and metadata<a href="#preserve-raw-data-and-metadata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Keep raw data read-only. Record provenance, extraction date,
 inclusion rules, variable definitions, units, value labels,
 missing-value codes, and transformations. A minimal data dictionary
@@ -4230,8 +4923,9 @@ and known limitations.</p>
 report. The simulated data below are safe because they do not represent
 real people.</p>
 </div>
-<div id="simulate-a-fixed-five-year-cohort-for-teaching" class="section level2">
-<h2>11.2 Simulate a fixed five-year cohort for teaching</h2>
+<div id="simulate-a-fixed-five-year-cohort-for-teaching" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.2 Simulate a fixed five-year cohort for
+teaching<a href="#simulate-a-fixed-five-year-cohort-for-teaching" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The simulated participants are disease-free at baseline and all
 complete five years of follow-up. The binary outcome
 <code>disease_5y</code> therefore represents incident disease by five
@@ -4263,8 +4957,8 @@ years, giving every risk below an explicit and common time horizon.</p>
   </script>
 </div>
 </div>
-<div id="data-quality-checks" class="section level2">
-<h2>11.3 Data-quality checks</h2>
+<div id="data-quality-checks" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.3 Data-quality checks<a href="#data-quality-checks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Checks should be driven by meaning, not only by software type.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>quality_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>  <span class="at">variable =</span> <span class="fu">names</span>(cohort),</span>
@@ -4289,8 +4983,8 @@ years, giving every risk below an explicit and common time horizon.</p>
 changes, denominator coverage, category drift over time, and whether
 missingness is encoded as values such as 9, 99, blank, or “unknown.”</p>
 </div>
-<div id="describe-before-modeling" class="section level2">
-<h2>11.4 Describe before modeling</h2>
+<div id="describe-before-modeling" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.4 Describe before modeling<a href="#describe-before-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>overall_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">nrow</span>(cohort),</span>
 <span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>  <span class="at">mean_age =</span> <span class="fu">mean</span>(cohort<span class="sc">$</span>age),</span>
@@ -4324,8 +5018,8 @@ missingness is encoded as values such as 9, 99, blank, or “unknown.”</p>
 nonlinear patterns, and whether the planned estimand is supported by the
 data.</p>
 </div>
-<div id="crude-2-x-2-analysis" class="section level2">
-<h2>11.5 Crude 2 x 2 analysis</h2>
+<div id="crude-2-x-2-analysis" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.5 Crude 2 x 2 analysis<a href="#crude-2-x-2-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>cohort_tab <span class="ot">&lt;-</span> <span class="fu">with</span>(cohort, <span class="fu">table</span>(</span>
 <span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>  <span class="fu">factor</span>(smoker, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-smoker&quot;</span>)),</span>
 <span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>  <span class="fu">factor</span>(disease_5y, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Case&quot;</span>, <span class="st">&quot;Non-case&quot;</span>))</span>
@@ -4345,8 +5039,8 @@ data.</p>
 probability and five-year disease risk in the simulation, the crude
 association does not isolate a smoking effect.</p>
 </div>
-<div id="logistic-regression" class="section level2">
-<h2>11.6 Logistic regression</h2>
+<div id="logistic-regression" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.6 Logistic regression<a href="#logistic-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Logistic regression models log odds. Exponentiated coefficients are
 adjusted odds ratios, conditional on included variables and model
 form.</p>
@@ -4386,8 +5080,8 @@ coefficient assumes a constant change in log odds per year. Splines are
 often preferable to arbitrary categorization, but require additional
 tools beyond this package-free tutorial.</p>
 </div>
-<div id="standardized-risks-from-a-regression-model" class="section level2">
-<h2>11.7 Standardized risks from a regression model</h2>
+<div id="standardized-risks-from-a-regression-model" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.7 Standardized risks from a regression model<a href="#standardized-risks-from-a-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Odds ratios are not risks. Regression standardization can translate a
 fitted model to marginal five-year risks under two exposure
 scenarios.</p>
@@ -4417,8 +5111,8 @@ exchangeability, positivity, consistency, measurement, model, and
 selection assumptions are adequate. The simple calculation also omits
 uncertainty intervals.</p>
 </div>
-<div id="interaction-example" class="section level2">
-<h2>11.8 Interaction example</h2>
+<div id="interaction-example" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.8 Interaction example<a href="#interaction-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>fit_interaction <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
 <span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>  disease_5y <span class="sc">~</span> smoker <span class="sc">*</span> sex <span class="sc">+</span> age <span class="sc">+</span> activity,</span>
 <span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(), <span class="at">data =</span> cohort</span>
@@ -4455,8 +5149,8 @@ systematically because baseline risks differ and interaction is
 scale-specific; sampling variation adds further differences. Report the
 effect scale, uncertainty intervals, and scientific context.</p>
 </div>
-<div id="count-and-rate-models" class="section level2">
-<h2>11.9 Count and rate models</h2>
+<div id="count-and-rate-models" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.9 Count and rate models<a href="#count-and-rate-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Poisson regression can model event counts with log person-time as an
 offset.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>n_units <span class="ot">&lt;-</span> <span class="dv">800</span></span>
@@ -4494,8 +5188,9 @@ expected counts to rates. Strong overdispersion, clustering, excess
 zeros, or recurrent-event dependence requires a more appropriate
 variance/model strategy.</p>
 </div>
-<div id="grouped-case-control-example-using-esoph" class="section level2">
-<h2>11.10 Grouped case-control example using <code>esoph</code></h2>
+<div id="grouped-case-control-example-using-esoph" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.10 Grouped case-control example using
+<code>esoph</code><a href="#grouped-case-control-example-using-esoph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The built-in <code>esoph</code> dataset contains grouped cases and
 controls in a study of esophageal cancer, age, alcohol consumption, and
 tobacco consumption. Its grouping variables are ordered factors, so they
@@ -4531,15 +5226,16 @@ treatment contrasts then compare each category with the first.</p>
 <span id="cb41-21"><a href="#cb41-21" tabindex="-1"></a>esoph_results</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["odds_ratio"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["lower_95"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["upper_95"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.001012","3":"0.0001205","4":"0.008506"},{"1":"agegp35-44","2":"7.249153","3":"0.8326986","4":"63.108326"},{"1":"agegp45-54","2":"43.653631","3":"5.3812727","4":"354.124319"},{"1":"agegp55-64","2":"76.338826","3":"9.4658088","4":"615.649062"},{"1":"agegp65-74","2":"133.807989","3":"16.2274701","4":"1103.349921"},{"1":"agegp75+","2":"124.778731","3":"13.8571131","4":"1123.591288"},{"1":"alcgp40-79","2":"4.198086","3":"2.5715444","4":"6.853440"},{"1":"alcgp80-119","2":"7.247940","3":"4.1478241","4":"12.665107"},{"1":"alcgp120+","2":"36.703378","3":"17.2565919","4":"78.065124"},{"1":"tobgp10-19","2":"1.549686","3":"0.9905842","4":"2.424354"},{"1":"tobgp20-29","2":"1.669657","3":"0.9778321","4":"2.850953"},{"1":"tobgp30+","2":"5.160313","3":"2.6288184","4":"10.129583"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["odds_ratio"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["lower_95"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["upper_95"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"1.012e-03","3":"1.205e-04","4":"8.506e-03"},{"1":"agegp35-44","2":"7.249e+00","3":"8.327e-01","4":"6.311e+01"},{"1":"agegp45-54","2":"4.365e+01","3":"5.381e+00","4":"3.541e+02"},{"1":"agegp55-64","2":"7.634e+01","3":"9.466e+00","4":"6.156e+02"},{"1":"agegp65-74","2":"1.338e+02","3":"1.623e+01","4":"1.103e+03"},{"1":"agegp75+","2":"1.248e+02","3":"1.386e+01","4":"1.124e+03"},{"1":"alcgp40-79","2":"4.198e+00","3":"2.572e+00","4":"6.853e+00"},{"1":"alcgp80-119","2":"7.248e+00","3":"4.148e+00","4":"1.267e+01"},{"1":"alcgp120+","2":"3.670e+01","3":"1.726e+01","4":"7.807e+01"},{"1":"tobgp10-19","2":"1.550e+00","3":"9.906e-01","4":"2.424e+00"},{"1":"tobgp20-29","2":"1.670e+00","3":"9.778e-01","4":"2.851e+00"},{"1":"tobgp30+","2":"5.160e+00","3":"2.629e+00","4":"1.013e+01"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>The first level of each factor is the reference category.
 Interpretation still depends on the original sampling and measurement
 process; model output alone is not a study design.</p>
 </div>
-<div id="built-in-aggregate-data-titanic" class="section level2">
-<h2>11.11 Built-in aggregate data: <code>Titanic</code></h2>
+<div id="built-in-aggregate-data-titanic" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.11 Built-in aggregate data:
+<code>Titanic</code><a href="#built-in-aggregate-data-titanic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>Titanic</code> table illustrates stratified risks, although
 it is not a modern health study and its categories reflect historical
 records.</p>
@@ -4573,8 +5269,9 @@ records.</p>
 age, evacuation process, and record completeness are intertwined; the
 table should not be turned into an individual causal claim.</p>
 </div>
-<div id="ecologic-caution-using-state.x77" class="section level2">
-<h2>11.12 Ecologic caution using <code>state.x77</code></h2>
+<div id="ecologic-caution-using-state.x77" class="section level2 hasAnchor">
+<h2 class="hasAnchor">11.12 Ecologic caution using
+<code>state.x77</code><a href="#ecologic-caution-using-state.x77" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a>state_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(state.x77)</span>
 <span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a>correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(state_data<span class="sc">$</span>Illiteracy, state_data<span class="sc">$</span><span class="st">`</span><span class="at">Life Exp</span><span class="st">`</span>)</span>
 <span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a>correlation</span></code></pre></div>
@@ -4592,10 +5289,12 @@ Group composition, historical context, policy, and many shared causes
 can produce the pattern.</p>
 </div>
 </div>
-<div id="missing-data-censoring-and-sensitivity-analysis" class="section level1">
-<h1>12. Missing data, censoring, and sensitivity analysis</h1>
-<div id="missing-data-mechanisms-as-working-assumptions" class="section level2">
-<h2>12.1 Missing-data mechanisms as working assumptions</h2>
+<div id="missing-data-censoring-and-sensitivity-analysis" class="section level1 hasAnchor">
+<h1 class="hasAnchor">12. Missing data, censoring, and sensitivity
+analysis<a href="#missing-data-censoring-and-sensitivity-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="missing-data-mechanisms-as-working-assumptions" class="section level2 hasAnchor">
+<h2 class="hasAnchor">12.1 Missing-data mechanisms as working
+assumptions<a href="#missing-data-mechanisms-as-working-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>MCAR:</strong> missingness is unrelated to observed or
 unobserved values (rarely plausible in full).</li>
@@ -4613,8 +5312,8 @@ imputation can be useful when its model, auxiliary variables, time
 ordering, and estimand are appropriate, but it does not repair
 systematically unmeasured information.</p>
 </div>
-<div id="demonstrating-missingness" class="section level2">
-<h2>12.2 Demonstrating missingness</h2>
+<div id="demonstrating-missingness" class="section level2 hasAnchor">
+<h2 class="hasAnchor">12.2 Demonstrating missingness<a href="#demonstrating-missingness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a>cohort_missing <span class="ot">&lt;-</span> cohort</span>
 <span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a>missing_probability <span class="ot">&lt;-</span> <span class="fu">plogis</span>(<span class="sc">-</span><span class="dv">3</span> <span class="sc">+</span> <span class="fl">0.025</span> <span class="sc">*</span> (cohort_missing<span class="sc">$</span>age <span class="sc">-</span> <span class="dv">50</span>) <span class="sc">+</span></span>
 <span id="cb51-3"><a href="#cb51-3" tabindex="-1"></a>                              <span class="fl">0.8</span> <span class="sc">*</span> cohort_missing<span class="sc">$</span>disease_5y)</span>
@@ -4632,8 +5331,8 @@ systematically unmeasured information.</p>
 <p>Because missingness here depends on outcome and age, simply
 describing an overall missing percentage hides a meaningful pattern.</p>
 </div>
-<div id="censoring-and-loss-to-follow-up" class="section level2">
-<h2>12.3 Censoring and loss to follow-up</h2>
+<div id="censoring-and-loss-to-follow-up" class="section level2 hasAnchor">
+<h2 class="hasAnchor">12.3 Censoring and loss to follow-up<a href="#censoring-and-loss-to-follow-up" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Censoring is not synonymous with missing a covariate. In
 time-to-event analyses it means the event time is only partially
 observed. Standard survival methods rely on independent/noninformative
@@ -4641,8 +5340,8 @@ censoring conditional on modeled variables. If prognosis affects dropout
 differently across exposure groups, inverse-probability-of-censoring
 weights or sensitivity analyses may be needed.</p>
 </div>
-<div id="sensitivity-analyses" class="section level2">
-<h2>12.4 Sensitivity analyses</h2>
+<div id="sensitivity-analyses" class="section level2 hasAnchor">
+<h2 class="hasAnchor">12.4 Sensitivity analyses<a href="#sensitivity-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Useful sensitivity analyses target the most consequential
 assumptions:</p>
 <ul>
@@ -4663,8 +5362,8 @@ Prespecify primary choices and explain why each sensitivity analysis
 probes a specific vulnerability.</p>
 </div>
 </div>
-<div id="sample-size-power-and-precision" class="section level1">
-<h1>13. Sample size, power, and precision</h1>
+<div id="sample-size-power-and-precision" class="section level1 hasAnchor">
+<h1 class="hasAnchor">13. Sample size, power, and precision<a href="#sample-size-power-and-precision" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Sample-size planning should follow the primary estimand and design.
 Inputs may include baseline risk/rate, smallest important effect,
 exposure prevalence or allocation ratio, follow-up, clustering, repeated
@@ -4680,8 +5379,9 @@ database. The number of rows is not the same as information: clustering,
 imbalance, poor overlap, and measurement error reduce effective
 information.</p>
 </div>
-<div id="ethics-equity-privacy-and-community-partnership" class="section level1">
-<h1>14. Ethics, equity, privacy, and community partnership</h1>
+<div id="ethics-equity-privacy-and-community-partnership" class="section level1 hasAnchor">
+<h1 class="hasAnchor">14. Ethics, equity, privacy, and community
+partnership<a href="#ethics-equity-privacy-and-community-partnership" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Epidemiologic quality includes ethical quality.</p>
 <ul>
 <li>Obtain appropriate research ethics or public-health authority
@@ -4703,10 +5403,10 @@ uncertainty.</li>
 tables can be combined. Follow applicable law, institutional policy, and
 data-governance agreements.</p>
 </div>
-<div id="reporting-and-interpretation" class="section level1">
-<h1>15. Reporting and interpretation</h1>
-<div id="a-transparent-results-paragraph" class="section level2">
-<h2>15.1 A transparent results paragraph</h2>
+<div id="reporting-and-interpretation" class="section level1 hasAnchor">
+<h1 class="hasAnchor">15. Reporting and interpretation<a href="#reporting-and-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="a-transparent-results-paragraph" class="section level2 hasAnchor">
+<h2 class="hasAnchor">15.1 A transparent results paragraph<a href="#a-transparent-results-paragraph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A strong paragraph usually gives:</p>
 <ol style="list-style-type: decimal">
 <li>the population and design;</li>
@@ -4727,8 +5427,8 @@ for [prespecified variables]. Residual confounding by [important factor]
 and [measurement/selection limitation] may remain.</p>
 </blockquote>
 </div>
-<div id="avoid-common-interpretation-errors" class="section level2">
-<h2>15.2 Avoid common interpretation errors</h2>
+<div id="avoid-common-interpretation-errors" class="section level2 hasAnchor">
+<h2 class="hasAnchor">15.2 Avoid common interpretation errors<a href="#avoid-common-interpretation-errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Do not:</p>
 <ul>
 <li>say “no association” merely because a confidence interval includes
@@ -4746,8 +5446,8 @@ transportability;</li>
 <li>confuse statistical, clinical, and public-health importance.</li>
 </ul>
 </div>
-<div id="reporting-guidelines" class="section level2">
-<h2>15.3 Reporting guidelines</h2>
+<div id="reporting-guidelines" class="section level2 hasAnchor">
+<h2 class="hasAnchor">15.3 Reporting guidelines<a href="#reporting-guidelines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Use design-appropriate checklists as aids, not replacements for
 judgment:</p>
 <ul>
@@ -4761,8 +5461,8 @@ judgment:</p>
 </ul>
 </div>
 </div>
-<div id="reproducibility-checklist" class="section level1">
-<h1>16. Reproducibility checklist</h1>
+<div id="reproducibility-checklist" class="section level1 hasAnchor">
+<h1 class="hasAnchor">16. Reproducibility checklist<a href="#reproducibility-checklist" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Before release, confirm that:</p>
 <ul>
 <li>the question, estimand, design, and analysis align;</li>
@@ -4803,10 +5503,10 @@ copy/paste;</li>
 ## [11] sass_0.4.10     jquerylib_0.1.4 compiler_4.6.1  tools_4.6.1     evaluate_1.0.5 
 ## [16] bslib_0.12.0    yaml_2.3.12     rlang_1.3.0     jsonlite_2.0.0</code></pre>
 </div>
-<div id="exercises" class="section level1">
-<h1>17. Exercises</h1>
-<div id="exercise-1-frequency-measures" class="section level2">
-<h2>Exercise 1: Frequency measures</h2>
+<div id="exercises" class="section level1 hasAnchor">
+<h1 class="hasAnchor">17. Exercises<a href="#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="exercise-1-frequency-measures" class="section level2 hasAnchor">
+<h2 class="hasAnchor">Exercise 1: Frequency measures<a href="#exercise-1-frequency-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A town has 20,000 residents. On January 1, 1,000 have a chronic
 condition. During the year, 380 new cases occur among those initially
 free of the condition. They contribute 18,500 person-years at risk.</p>
@@ -4833,8 +5533,8 @@ free of the condition. They contribute 18,500 person-years at risk.</p>
 per 1,000 person-years.</p>
 </details>
 </div>
-<div id="exercise-2-association-and-impact" class="section level2">
-<h2>Exercise 2: Association and impact</h2>
+<div id="exercise-2-association-and-impact" class="section level2 hasAnchor">
+<h2 class="hasAnchor">Exercise 2: Association and impact<a href="#exercise-2-association-and-impact" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In a cohort, 120 of 1,500 exposed people and 60 of 1,500 unexposed
 people develop an outcome.</p>
 <ol style="list-style-type: decimal">
@@ -4860,8 +5560,8 @@ uncommon enough that the two relative measures are fairly close, but
 they are not identical.</p>
 </details>
 </div>
-<div id="exercise-3-screening" class="section level2">
-<h2>Exercise 3: Screening</h2>
+<div id="exercise-3-screening" class="section level2 hasAnchor">
+<h2 class="hasAnchor">Exercise 3: Screening<a href="#exercise-3-screening" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A test has 95% sensitivity and 90% specificity. In a population of
 10,000, disease prevalence is 1%.</p>
 <ol style="list-style-type: decimal">
@@ -4891,8 +5591,8 @@ fraction applied to 9,900 noncases produces far more false positives
 than the 95 true positives.</p>
 </details>
 </div>
-<div id="exercise-4-study-design" class="section level2">
-<h2>Exercise 4: Study design</h2>
+<div id="exercise-4-study-design" class="section level2 hasAnchor">
+<h2 class="hasAnchor">Exercise 4: Study design<a href="#exercise-4-study-design" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You need to study a very rare cancer with a 20-year latency and have
 access to archived occupational records. Which design is efficient, and
 what control-selection principle is essential?</p>
@@ -4907,8 +5607,8 @@ exposure distribution of the source population that produced the cases
 and must be eligible to become cases at the relevant time.</p>
 </details>
 </div>
-<div id="exercise-5-bias-and-causal-structure" class="section level2">
-<h2>Exercise 5: Bias and causal structure</h2>
+<div id="exercise-5-bias-and-causal-structure" class="section level2 hasAnchor">
+<h2 class="hasAnchor">Exercise 5: Bias and causal structure<a href="#exercise-5-bias-and-causal-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A study of air pollution and asthma severity includes only people
 admitted to hospital. Both pollution exposure and asthma severity affect
 admission. What can happen when the analysis conditions on
@@ -4924,8 +5624,8 @@ adjustment within the selected sample does not automatically fix the
 problem.</p>
 </details>
 </div>
-<div id="exercise-6-formulate-a-protocol-question" class="section level2">
-<h2>Exercise 6: Formulate a protocol question</h2>
+<div id="exercise-6-formulate-a-protocol-question" class="section level2 hasAnchor">
+<h2 class="hasAnchor">Exercise 6: Formulate a protocol question<a href="#exercise-6-formulate-a-protocol-question" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Rewrite “Does exercise prevent dementia?” as a PECO question.
 Identify at least two likely confounders and one measurement
 challenge.</p>
@@ -4945,8 +5645,8 @@ analysis could address parts of these problems.</p>
 </details>
 </div>
 </div>
-<div id="glossary" class="section level1">
-<h1>18. Glossary</h1>
+<div id="glossary" class="section level1 hasAnchor">
+<h1 class="hasAnchor">18. Glossary<a href="#glossary" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <table>
 <colgroup>
 <col width="50%" />
@@ -5082,8 +5782,8 @@ follow-up</td>
 </tbody>
 </table>
 </div>
-<div id="further-reading-and-authoritative-resources" class="section level1">
-<h1>19. Further reading and authoritative resources</h1>
+<div id="further-reading-and-authoritative-resources" class="section level1 hasAnchor">
+<h1 class="hasAnchor">19. Further reading and authoritative resources<a href="#further-reading-and-authoritative-resources" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <ul>
 <li>Centers for Disease Control and Prevention. <em>Principles of
 Epidemiology in Public Health Practice</em>, 3rd edition, updated 2012.
@@ -5107,8 +5807,8 @@ reporting</a>.</li>
 <li>R Core Team. <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html">An
 Introduction to R</a>.</li>
 </ul>
-<div id="final-takeaway" class="section level2">
-<h2>Final takeaway</h2>
+<div id="final-takeaway" class="section level2 hasAnchor">
+<h2 class="hasAnchor">Final takeaway<a href="#final-takeaway" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Epidemiology is not a collection of formulas. It is a disciplined way
 to connect a population question to a defensible design, accurate
 measurement, an appropriate comparison, transparent analysis, and action
