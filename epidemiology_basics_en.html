@@ -2790,25 +2790,25 @@ margin-right: -30px;
 
 
 <style type="text/css">:root {
---epi-navy: #16354b;
---epi-navy-soft: #274f62;
+--epi-navy: #17324d;
+--epi-navy-soft: #244b6d;
 --epi-teal: #0b6b66;
---epi-teal-dark: #07524f;
+--epi-teal-dark: #07534f;
 --epi-green: #39735f;
---epi-gold: #9a650d;
---epi-coral: #a74832;
---epi-ink: #1e3440;
---epi-muted: #526872;
---epi-paper: #f4f8f6;
+--epi-gold: #9a4e00;
+--epi-coral: #ad3e3e;
+--epi-ink: #203040;
+--epi-muted: #526579;
+--epi-paper: #f6f9fb;
 --epi-surface: #ffffff;
---epi-line: #d5e2de;
---epi-teal-pale: #e8f5f1;
---epi-blue-pale: #edf5f8;
+--epi-line: #d7e1e8;
+--epi-teal-pale: #eaf6f4;
+--epi-blue-pale: #edf5fb;
 --epi-green-pale: #edf7ef;
---epi-amber-pale: #fff6df;
---epi-rose-pale: #fff0ec;
---epi-focus: #b43f08;
---epi-shadow: 0 12px 30px rgba(22, 53, 75, 0.1);
+--epi-amber-pale: #fff5df;
+--epi-rose-pale: #fff0ef;
+--epi-focus: #c2410c;
+--epi-shadow: 0 12px 32px rgba(23, 50, 77, 0.14);
 
 --navy: var(--epi-navy);
 --navy-soft: var(--epi-navy-soft);
@@ -2831,9 +2831,7 @@ scroll-padding-top: 1.5rem;
 }
 html body {
 color: var(--epi-ink);
-background:
-radial-gradient(circle at 96% 3%, rgba(159, 211, 197, 0.23), transparent 24rem),
-var(--epi-paper);
+background: var(--epi-paper);
 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
 "Hiragino Sans GB", "Microsoft YaHei", Roboto, Arial, sans-serif;
 font-size: 16px;
@@ -2849,7 +2847,7 @@ line-height: 1.78;
 box-sizing: border-box;
 }
 .main-container {
-max-width: 1180px;
+max-width: 1160px;
 padding: 0 clamp(1rem, 3vw, 2.25rem) 4rem;
 }
 .skip-link {
@@ -2874,9 +2872,9 @@ align-items: center;
 gap: 0.65rem;
 width: fit-content;
 min-height: 44px;
-margin: 1.25rem 0 0.55rem;
+margin: 1.5rem 0 0.65rem;
 color: var(--epi-navy);
-font-weight: 850;
+font-weight: 800;
 letter-spacing: 0.085em;
 line-height: 1;
 text-decoration: none;
@@ -2890,13 +2888,13 @@ text-decoration: none;
 display: inline-flex;
 align-items: center;
 justify-content: center;
-width: 2.15rem;
-height: 2.15rem;
-flex: 0 0 2.15rem;
+width: 2rem;
+height: 2rem;
+flex: 0 0 2rem;
 color: #fff;
-background: linear-gradient(145deg, var(--epi-navy), var(--epi-teal));
-border-radius: 10px;
-box-shadow: 0 6px 16px rgba(11, 107, 102, 0.2);
+background: linear-gradient(135deg, var(--epi-navy), var(--epi-teal));
+border-radius: 9px;
+box-shadow: 0 5px 14px rgba(23, 50, 77, 0.18);
 font-size: 1rem;
 letter-spacing: 0;
 }
@@ -2904,28 +2902,18 @@ letter-spacing: 0;
 font-size: 0.9rem;
 }
 .vlab-brand + #header {
-margin-top: 0.55rem;
+margin-top: 0.65rem;
 }
 #header {
-position: relative;
-margin: 1.35rem 0 2.25rem;
+margin: 1.5rem 0 2.25rem;
 padding: clamp(1.5rem, 4vw, 2.8rem);
-overflow: hidden;
 color: #fff;
-background: linear-gradient(135deg, var(--epi-navy) 0%, var(--epi-teal) 72%, var(--epi-green) 100%);
+background: linear-gradient(135deg, var(--epi-navy), var(--epi-teal));
 border-radius: 18px;
 box-shadow: var(--epi-shadow);
 }
 #header::after {
-position: absolute;
-right: -5rem;
-bottom: -7rem;
-width: 17rem;
-height: 17rem;
-content: "";
-background: rgba(255, 255, 255, 0.07);
-border-radius: 50%;
-pointer-events: none;
+display: none;
 }
 #header h1,
 #header h3,
@@ -2937,18 +2925,17 @@ z-index: 1;
 color: #fff;
 }
 #header h1 {
-max-width: 900px;
 margin-top: 0;
-font-size: clamp(2rem, 5vw, 3.4rem);
+font-size: clamp(2.05rem, 5vw, 3.45rem);
 line-height: 1.08;
 letter-spacing: -0.025em;
 }
 #header .subtitle {
-max-width: 780px;
+max-width: 760px;
 margin-top: 0.8rem;
 font-weight: 400;
-line-height: 1.45;
-opacity: 0.95;
+line-height: 1.4;
+opacity: 0.94;
 }
 #header .author,
 #header .date {
@@ -3039,7 +3026,8 @@ body .tip,
 body .warning,
 body .formula-box,
 body .well-note,
-body .well-caution {
+body .well-caution,
+body .well-template {
 max-width: 82ch;
 margin: 1.35rem 0;
 padding: 1rem 1.15rem;
@@ -3062,6 +3050,10 @@ body .well-caution {
 background: var(--epi-amber-pale);
 border-left-color: var(--epi-gold);
 }
+body .well-template {
+background: var(--epi-teal-pale);
+border-left-color: var(--epi-teal);
+}
 body .formula-box {
 overflow-x: auto;
 color: var(--epi-navy);
@@ -3075,7 +3067,8 @@ text-align: center;
 .warning > :last-child,
 .formula-box > :last-child,
 .well-note > :last-child,
-.well-caution > :last-child {
+.well-caution > :last-child,
+.well-template > :last-child {
 margin-bottom: 0;
 }
 blockquote {
@@ -3239,8 +3232,8 @@ overflow-x: hidden;
 overflow-y: auto;
 background: rgba(255, 255, 255, 0.97);
 border: 1px solid var(--epi-line);
-border-radius: 11px;
-box-shadow: 0 8px 22px rgba(22, 53, 75, 0.07);
+border-radius: 10px;
+box-shadow: none;
 scrollbar-width: thin;
 scrollbar-color: #a9bfba transparent;
 }
@@ -3438,7 +3431,8 @@ blockquote,
 .warning,
 .formula-box,
 .well-note,
-.well-caution {
+.well-caution,
+.well-template {
 break-inside: avoid;
 }
 details > * {
@@ -3633,23 +3627,6 @@ questions, and reproducible R examples</h3>
 </div>
 
 
-<style>
-body { line-height: 1.62; }
-.well-note {
-border-left: 5px solid #2c7fb8;
-background: #eef7fc;
-padding: 0.8em 1em;
-margin: 1em 0;
-}
-.well-caution {
-border-left: 5px solid #d9822b;
-background: #fff8ed;
-padding: 0.8em 1em;
-margin: 1em 0;
-}
-.small-text { font-size: 0.92em; color: #444; }
-table { width: 100%; }
-</style>
 <nav class="language-switch" aria-label="Guide navigation">
 <a class="language-home" href="index.html">← The V Lab Home</a> <span class="language-option active" aria-current="page">Foundations EN</span>
 <a class="language-option" href="epidemiology_basics_zh.html" lang="zh-CN" hreflang="zh-CN">基础中文</a>
