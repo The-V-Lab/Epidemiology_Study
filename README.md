@@ -4,7 +4,7 @@
 
 [![The V Lab Epidemiology Learning Hub](og-learning-hub.png)](https://laboratoirev.github.io/Epidemiology_Study/)
 
-一个面向公共卫生、医学和健康数据科学学习者的中英双语流行病学学习网站。课程从人群视角出发，系统介绍疾病频率、研究设计、偏倚与混杂、筛查与诊断、暴发调查、因果推断，以及可重复的 R 分析。
+一个面向公共卫生、医学和健康数据科学学习者的中英双语流行病学学习网站。三组课程从人群视角出发，系统介绍疾病频率、研究设计、偏倚与混杂、筛查与诊断、暴发调查、因果推断、进阶流行病学方法，以及可重复的 R 分析。
 
 ## 在线学习
 
@@ -13,6 +13,8 @@
 - [English guide: Foundations of Epidemiology](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_basics_en.html)
 - [中文专题：流行病学研究设计、研究类型、抽样与方案制定](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_research_designs_zh.html)
 - [English guide: Epidemiologic Research Designs](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_research_designs_en.html)
+- [中文专题：进阶流行病学方法](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_advanced_methods_zh.html)
+- [English guide: Advanced Epidemiologic Methods](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_advanced_methods_en.html)
 
 ## 你将学习
 
@@ -26,7 +28,8 @@
 - 将常见研究主题转化为明确、合乎伦理且可回答的问题；
 - 比较常用研究类型的适用问题、优点、局限及主要偏倚；
 - 定义目标人群、来源人群与抽样框，选择概率或非概率抽样方法；
-- 将研究问题转化为包含样本量、招募、测量、质量控制、伦理和分析计划的完整方案。
+- 将研究问题转化为包含样本量、招募、测量、质量控制、伦理和分析计划的完整方案；
+- 运用生存与竞争风险分析、现代因果效应估计、缺失数据方法、可迁移性分析和定量偏倚分析。
 
 ## 项目文件
 
@@ -35,7 +38,9 @@
 - `epidemiology_basics_en.html`：完整英文教程。
 - `epidemiology_research_designs_zh.html`：中文研究设计、研究类型与抽样专题。
 - `epidemiology_research_designs_en.html`：英文研究设计、研究类型与抽样专题。
-- `styles.css`：四份教程共享的品牌、移动端和打印样式。
+- `epidemiology_advanced_methods_zh.html`：中文进阶流行病学方法专题。
+- `epidemiology_advanced_methods_en.html`：英文进阶流行病学方法专题。
+- `styles.css`：六份教程共享的品牌、移动端和打印样式。
 - `includes/vlab-brand.html`：教程页顶部的 The V Lab 品牌入口。
 - `og-learning-hub.png`：网站社交分享预览图。
 - `render.R`：在本地 Rmd 源文件存在时重新生成 HTML。

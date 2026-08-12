@@ -4,7 +4,7 @@
 
 [![The V Lab Epidemiology Learning Hub](og-learning-hub.png)](https://laboratoirev.github.io/Epidemiology_Study/)
 
-A bilingual epidemiology learning website for students and practitioners in public health, medicine, and health data science. The curriculum starts with population thinking and develops a practical understanding of disease frequency, study design, bias and confounding, screening, outbreak investigation, causal inference, and reproducible analysis in R.
+A bilingual epidemiology learning website for students and practitioners in public health, medicine, and health data science. Its three modules start with population thinking and develop a practical understanding of disease frequency, study design, bias and confounding, screening, outbreak investigation, causal inference, advanced epidemiologic methods, and reproducible analysis in R.
 
 ## Learn online
 
@@ -13,6 +13,8 @@ A bilingual epidemiology learning website for students and practitioners in publ
 - [Chinese guide: 流行病学基础、方法与常见研究](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_basics_zh.html)
 - [English guide: Epidemiologic Research Designs](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_research_designs_en.html)
 - [Chinese guide: 流行病学研究设计、研究类型、抽样与方案制定](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_research_designs_zh.html)
+- [English guide: Advanced Epidemiologic Methods](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_advanced_methods_en.html)
+- [Chinese guide: 进阶流行病学方法](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_advanced_methods_zh.html)
 
 ## What you will learn
 
@@ -25,8 +27,9 @@ A bilingual epidemiology learning website for students and practitioners in publ
 - use R for data checks, descriptive analysis, introductory regression, and reproducible reporting;
 - turn common research topics into clear, ethical, and answerable questions;
 - compare common study types by question, strengths, limitations, and likely biases;
-- define target and source populations, construct sampling frames, and choose probability or non-probability sampling methods; and
-- develop a protocol covering sample size, recruitment, measurement, quality control, ethics, and analysis planning.
+- define target and source populations, construct sampling frames, and choose probability or non-probability sampling methods;
+- develop a protocol covering sample size, recruitment, measurement, quality control, ethics, and analysis planning; and
+- apply survival and competing-risk analysis, modern causal-effect estimation, missing-data methods, transportability methods, and quantitative bias analysis.
 
 ## Repository contents
 
@@ -35,7 +38,9 @@ A bilingual epidemiology learning website for students and practitioners in publ
 - `epidemiology_basics_zh.html`: complete Chinese guide.
 - `epidemiology_research_designs_en.html`: English guide to study design, study types, and sampling.
 - `epidemiology_research_designs_zh.html`: Chinese guide to study design, study types, and sampling.
-- `styles.css`: shared branding, mobile, and print styles for all four guides.
+- `epidemiology_advanced_methods_en.html`: English guide to advanced epidemiologic methods.
+- `epidemiology_advanced_methods_zh.html`: Chinese guide to advanced epidemiologic methods.
+- `styles.css`: shared branding, mobile, and print styles for all six guides.
 - `includes/vlab-brand.html`: The V Lab home link shown above each guide.
 - `og-learning-hub.png`: social-sharing preview image.
 - `render.R`: rebuilds the HTML guides when local Rmd sources are present.
