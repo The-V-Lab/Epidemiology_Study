@@ -1,15 +1,15 @@
 # The V Lab Epidemiology Learning Hub
 
-[![The V Lab Epidemiology Learning Hub](og-learning-hub.png)](https://laboratoirev.github.io/Epidemiology_Study/)
+[![The V Lab Epidemiology Learning Hub](og-learning-hub.png)](https://the-v-lab.github.io/Epidemiology_Study/)
 
 An epidemiology learning website for students and practitioners in public health, medicine, and health data science. Its three modules start with population thinking and develop a practical understanding of disease frequency, study design, bias and confounding, screening, outbreak investigation, causal inference, advanced epidemiologic methods, and reproducible analysis in R.
 
 ## Learn online
 
-- [Course home: Epidemiology Learning Hub](https://laboratoirev.github.io/Epidemiology_Study/)
-- [Guide: Foundations of Epidemiology](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_basics_en.html)
-- [Guide: Epidemiologic Research Designs](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_research_designs_en.html)
-- [Guide: Advanced Epidemiologic Methods](https://laboratoirev.github.io/Epidemiology_Study/epidemiology_advanced_methods_en.html)
+- [Course home: Epidemiology Learning Hub](https://the-v-lab.github.io/Epidemiology_Study/)
+- [Guide: Foundations of Epidemiology](https://the-v-lab.github.io/Epidemiology_Study/epidemiology_basics_en.html)
+- [Guide: Epidemiologic Research Designs](https://the-v-lab.github.io/Epidemiology_Study/epidemiology_research_designs_en.html)
+- [Guide: Advanced Epidemiologic Methods](https://the-v-lab.github.io/Epidemiology_Study/epidemiology_advanced_methods_en.html)
 
 ## What you will learn
 
